@@ -1,237 +1,293 @@
 <!DOCTYPE html>
 
-<html dir="rtl" lang="ar"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>بصيرة - الإعدادات</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Poppins:wght@400;600;700&family=Inter:wght@400;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<link href="assets/css/base.css" rel="stylesheet">
-<style>
-    /* Custom Islamic Watermark (matches messages.html/other pages) */
-    .islamic-watermark {
-        background-color: #F7F8FC;
-        background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0l10 30 30 10-30 10-10 30-10-30-30-10 30-10z' fill='%231B3A6B' fill-opacity='0.06'/%3E%3C/svg%3E");
-        background-repeat: repeat;
-    }
+<html dir="rtl" lang="ar">
 
-    .pulse-animation {
-        animation: pulse-teal 2s infinite;
-    }
-
-    @keyframes pulse-teal {
-        0% { box-shadow: 0 0 0 0 rgba(42, 157, 143, 0.4); }
-        70% { box-shadow: 0 0 0 20px rgba(42, 157, 143, 0); }
-        100% { box-shadow: 0 0 0 0 rgba(42, 157, 143, 0); }
-    }
-
-    /* Custom range slider styling for speech rate */
-    input[type="range"] {
-        -webkit-appearance: none;
-        appearance: none;
-        height: 6px;
-        border-radius: 999px;
-        background: #e2e0fc;
-        outline: none;
-    }
-    input[type="range"]::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        appearance: none;
-        width: 24px;
-        height: 24px;
-        border-radius: 50%;
-        background: #1B3A6B;
-        cursor: pointer;
-        border: 3px solid #fff;
-        box-shadow: 0 0 0 1px rgba(27,58,107,0.3);
-    }
-    input[type="range"]::-moz-range-thumb {
-        width: 24px;
-        height: 24px;
-        border-radius: 50%;
-        background: #1B3A6B;
-        cursor: pointer;
-        border: 3px solid #fff;
-        box-shadow: 0 0 0 1px rgba(27,58,107,0.3);
-    }
-
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: #c4c6d0; border-radius: 10px; }
-</style>
-<script src="assets/js/tailwind-config.js"></script>
-</head>
-<body class="islamic-watermark font-arabic-body text-on-surface">
-<!-- TopNavBar -->
-<header class="fixed right-0 top-0 h-touch-target w-full z-50 bg-background flex justify-between items-center px-gutter shadow-sm">
-<div class="flex items-center gap-4">
-<button class="flex items-center gap-2 px-4 h-10 hover:bg-surface-container-low transition-colors rounded-lg text-primary">
-<span class="material-symbols-outlined">translate</span>
-<span class="font-label-md">العربية</span>
-</button>
-</div>
-<div class="flex items-center gap-3">
-<span class="font-bold text-headline-sm text-primary tracking-tight">Bassira بصيرة</span>
-<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center">
-<span class="material-symbols-outlined text-white">settings</span>
-</div>
-</div>
-</header>
-<div class="flex pt-16 h-screen">
-<!-- SideNavBar -->
-<aside class="fixed right-0 top-0 h-full w-20 bg-surface-container-lowest border-l border-outline-variant/20 flex flex-col py-8 z-40 items-center gap-6 mt-16">
-<nav class="flex flex-col gap-4 w-full">
-<!-- Home -->
-<a class="flex flex-col items-center justify-center h-12 w-full text-on-surface-variant hover:bg-primary-container/10 transition-transform duration-200" href="index.html" aria-label="الرئيسية">
-<span class="material-symbols-outlined">home</span>
-<span class="text-[10px] font-bold">الرئيسية</span>
-</a>
-<!-- Courses -->
-<a class="flex flex-col items-center justify-center h-12 w-full text-on-surface-variant hover:bg-primary-container/10 transition-transform duration-200" href="courses.html" aria-label="المقررات">
-<span class="material-symbols-outlined">library_books</span>
-<span class="text-[10px] font-bold">المقررات</span>
-</a>
-<!-- Notes -->
-<a class="flex flex-col items-center justify-center h-12 w-full text-on-surface-variant hover:bg-primary-container/10 transition-transform duration-200" href="notes.html" aria-label="الملاحظات">
-<span class="material-symbols-outlined">description</span>
-<span class="text-[10px] font-bold">الملاحظات</span>
-</a>
-<!-- Assignments -->
-<a class="flex flex-col items-center justify-center h-12 w-full text-on-surface-variant hover:bg-primary-container/10 transition-transform duration-200" href="homework.html" aria-label="الواجبات">
-<span class="material-symbols-outlined">assignment</span>
-<span class="text-[10px] font-bold">الواجبات</span>
-</a>
-<!-- Messages -->
-<a class="flex flex-col items-center justify-center h-12 w-full text-on-surface-variant hover:bg-primary-container/10 transition-transform duration-200" href="messages.html" aria-label="الرسائل">
-<span class="material-symbols-outlined">chat</span>
-<span class="text-[10px] font-bold">الرسائل</span>
-</a>
-<!-- Settings (ACTIVE) -->
-<a class="flex flex-col items-center justify-center h-12 w-full text-primary border-r-4 border-primary bg-primary-container/5 transition-transform duration-200" href="settings.html" aria-label="الإعدادات" aria-current="page">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings</span>
-<span class="text-[10px] font-bold">الإعدادات</span>
-</a>
-</nav>
-</aside>
-
-<!-- Main Content -->
-<main class="mr-20 flex-grow p-gutter md:p-margin-desktop overflow-y-auto w-full">
-<div class="max-w-3xl mx-auto flex flex-col gap-8 pb-24">
-
-<div>
-<h1 class="font-arabic-h1 text-headline-md text-primary mb-2">الإعدادات</h1>
-<p class="font-arabic-body text-body-md text-on-surface-variant">Settings — Paramètres</p>
-</div>
-
-<!-- Language Section -->
-<section aria-labelledby="lang-heading" class="bg-white rounded-xl border border-outline-variant/20 shadow-sm p-gutter">
-<div class="flex items-center gap-3 mb-4">
-<span class="material-symbols-outlined text-secondary text-2xl">translate</span>
-<h2 id="lang-heading" class="font-headline-sm text-xl text-primary">اللغة</h2>
-</div>
-<p class="font-arabic-body text-on-surface-variant text-base mb-5">اختر لغة الواجهة والمساعد الصوتي بصيرة. Language / Langue</p>
-<div class="grid grid-cols-1 sm:grid-cols-3 gap-3" role="radiogroup" aria-label="اختيار اللغة">
-<button type="button" class="lang-option flex items-center justify-center gap-2 px-4 py-3 rounded-lg border-2 border-primary bg-primary text-white font-bold text-sm transition-all" role="radio" aria-checked="true" data-lang="ar">
-<span>العربية</span>
-</button>
-<button type="button" class="lang-option flex items-center justify-center gap-2 px-4 py-3 rounded-lg border-2 border-outline-variant text-outline font-bold text-sm hover:border-primary hover:text-primary transition-all" role="radio" aria-checked="false" data-lang="fr">
-<span>Français</span>
-</button>
-<button type="button" class="lang-option flex items-center justify-center gap-2 px-4 py-3 rounded-lg border-2 border-outline-variant text-outline font-bold text-sm hover:border-primary hover:text-primary transition-all" role="radio" aria-checked="false" data-lang="en">
-<span>English</span>
-</button>
-</div>
-<p class="text-xs text-on-surface-variant mt-3 font-arabic-body">يمكنك أيضاً قول: "بصيرة، غيّري اللغة إلى الفرنسية" من أي صفحة.</p>
-</section>
-
-<!-- Speech Rate Section -->
-<section aria-labelledby="rate-heading" class="bg-white rounded-xl border border-outline-variant/20 shadow-sm p-gutter">
-<div class="flex items-center gap-3 mb-4">
-<span class="material-symbols-outlined text-secondary text-2xl">speed</span>
-<h2 id="rate-heading" class="font-headline-sm text-xl text-primary">سرعة الكلام</h2>
-</div>
-<p class="font-arabic-body text-on-surface-variant text-base mb-6">اضبط سرعة قراءة بصيرة لتناسبك. Speech rate — Vitesse de la voix</p>
-<div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-on-surface-variant">slow_motion_video</span>
-<input aria-label="سرعة الكلام" aria-valuemin="0.5" aria-valuemax="2" aria-valuenow="1" class="flex-grow" id="speech-rate" max="2" min="0.5" step="0.1" type="range" value="1"/>
-<span class="material-symbols-outlined text-on-surface-variant">fast_forward</span>
-</div>
-<div class="flex justify-center mt-3">
-<span class="font-bold text-primary" id="speech-rate-value">1.0×</span>
-</div>
-<button class="mt-4 w-full flex items-center justify-center gap-2 py-2.5 rounded-lg border border-outline-variant text-on-surface-variant hover:border-primary hover:text-primary transition-all text-sm font-bold" id="preview-rate" type="button">
-<span class="material-symbols-outlined text-xl">play_circle</span>
-<span>تجربة الصوت</span>
-</button>
-</section>
-
-<!-- Microphone Section -->
-<section aria-labelledby="mic-heading" class="bg-white rounded-xl border border-outline-variant/20 shadow-sm p-gutter">
-<div class="flex items-center gap-3 mb-4">
-<span class="material-symbols-outlined text-secondary text-2xl">mic</span>
-<h2 id="mic-heading" class="font-headline-sm text-xl text-primary">الميكروفون</h2>
-</div>
-<p class="font-arabic-body text-on-surface-variant text-base mb-5">إذا رفضت السماح بالوصول إلى الميكروفون سابقاً، أعيدي تفعيله من هنا.</p>
-<div class="flex items-center justify-between gap-4 flex-wrap">
-<div class="flex items-center gap-3">
-<div class="w-3 h-3 rounded-full bg-error" id="mic-status-dot"></div>
-<span class="font-arabic-body text-on-surface" id="mic-status-text">الميكروفون غير مفعّل</span>
-</div>
-<button class="flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-white font-bold text-sm hover:bg-primary/90 transition-all" id="enable-mic-btn" type="button">
-<span class="material-symbols-outlined text-xl">mic</span>
-<span>تفعيل الميكروفون</span>
-</button>
-</div>
-</section>
-
-</div>
-</main>
-</div>
-
-<!-- BottomNavBar (Persistent Listener Status) -->
-<footer class="fixed bottom-0 left-0 w-full z-50 bg-[#1B3A6B] text-white h-16 shadow-lg flex items-center px-gutter md:px-margin-desktop">
-<div class="flex items-center gap-4">
-<div class="bg-secondary-container/20 p-2.5 rounded-full flex items-center justify-center pulse-animation">
-<span class="material-symbols-outlined text-secondary-fixed text-xl" style="font-variation-settings: 'FILL' 1;">mic</span>
-</div>
-<p class="font-arabic-body text-white text-sm" aria-live="polite" id="voice-status">بصيرة تستمع...</p>
-</div>
-</footer>
-
-<script>
-    // Language selection
-    document.querySelectorAll('.lang-option').forEach(btn => {
-        btn.addEventListener('click', () => {
-            document.querySelectorAll('.lang-option').forEach(b => {
-                b.setAttribute('aria-checked', 'false');
-                b.classList.remove('border-primary', 'bg-primary', 'text-white');
-                b.classList.add('border-outline-variant', 'text-outline');
-            });
-            btn.setAttribute('aria-checked', 'true');
-            btn.classList.add('border-primary', 'bg-primary', 'text-white');
-            btn.classList.remove('border-outline-variant', 'text-outline');
-        });
-    });
-
-    // Speech rate display
-    const rateInput = document.getElementById('speech-rate');
-    const rateValue = document.getElementById('speech-rate-value');
-    rateInput.addEventListener('input', () => {
-        rateValue.textContent = parseFloat(rateInput.value).toFixed(1) + '×';
-    });
-
-    // Mic re-enable (permission request; real STT wiring lives in voice_assistant.js)
-    document.getElementById('enable-mic-btn').addEventListener('click', async () => {
-        const dot = document.getElementById('mic-status-dot');
-        const text = document.getElementById('mic-status-text');
-        try {
-            await navigator.mediaDevices.getUserMedia({ audio: true });
-            dot.classList.remove('bg-error');
-            dot.classList.add('bg-secondary');
-            text.textContent = 'الميكروفون مفعّل';
-        } catch (e) {
-            text.textContent = 'تعذّر الوصول إلى الميكروفون — تحقق من إعدادات المتصفح';
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>بصيرة - الإعدادات</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Poppins:wght@400;600;700&family=Inter:wght@400;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <link href="assets/css/base.css" rel="stylesheet">
+    <style>
+        /* Custom Islamic Watermark (matches messages.html/other pages) */
+        .islamic-watermark {
+            background-color: #F7F8FC;
+            background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0l10 30 30 10-30 10-10 30-10-30-30-10 30-10z' fill='%231B3A6B' fill-opacity='0.06'/%3E%3C/svg%3E");
+            background-repeat: repeat;
         }
-    });
-</script>
-</body></html>
+
+        .pulse-animation {
+            animation: pulse-teal 2s infinite;
+        }
+
+        @keyframes pulse-teal {
+            0% {
+                box-shadow: 0 0 0 0 rgba(42, 157, 143, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 20px rgba(42, 157, 143, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(42, 157, 143, 0);
+            }
+        }
+
+        /* Custom range slider styling for speech rate */
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            height: 6px;
+            border-radius: 999px;
+            background: #e2e0fc;
+            outline: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #1B3A6B;
+            cursor: pointer;
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 1px rgba(27, 58, 107, 0.3);
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #1B3A6B;
+            cursor: pointer;
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 1px rgba(27, 58, 107, 0.3);
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #c4c6d0;
+            border-radius: 10px;
+        }
+    </style>
+    <script src="assets/js/tailwind-config.js"></script>
+</head>
+
+<body class="islamic-watermark font-arabic-body text-on-surface">
+    <!-- TopNavBar -->
+    <header
+        class="fixed right-0 top-0 h-touch-target w-full z-50 bg-background flex justify-between items-center px-gutter shadow-sm">
+        <div class="flex items-center gap-4">
+            <button
+                class="flex items-center gap-2 px-4 h-10 hover:bg-surface-container-low transition-colors rounded-lg text-primary">
+                <span class="material-symbols-outlined">translate</span>
+                <span class="font-label-md">العربية</span>
+            </button>
+        </div>
+        <div class="flex items-center gap-3">
+            <span class="font-bold text-headline-sm text-primary tracking-tight">Bassira بصيرة</span>
+            <div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center">
+                <span class="material-symbols-outlined text-white">settings</span>
+            </div>
+        </div>
+    </header>
+    <div class="flex pt-16 h-screen">
+        <!-- SideNavBar -->
+        <aside
+            class="fixed right-0 top-0 h-full w-20 bg-surface-container-lowest border-l border-outline-variant/20 flex flex-col py-8 z-40 items-center gap-6 mt-16">
+            <nav class="flex flex-col gap-4 w-full">
+                <!-- Home -->
+                <a class="flex flex-col items-center justify-center h-12 w-full text-on-surface-variant hover:bg-primary-container/10 transition-transform duration-200"
+                    href="index.html" aria-label="الرئيسية">
+                    <span class="material-symbols-outlined">home</span>
+                    <span class="text-[10px] font-bold">الرئيسية</span>
+                </a>
+                <!-- Courses -->
+                <a class="flex flex-col items-center justify-center h-12 w-full text-on-surface-variant hover:bg-primary-container/10 transition-transform duration-200"
+                    href="courses.html" aria-label="المقررات">
+                    <span class="material-symbols-outlined">library_books</span>
+                    <span class="text-[10px] font-bold">المقررات</span>
+                </a>
+                <!-- Notes -->
+                <a class="flex flex-col items-center justify-center h-12 w-full text-on-surface-variant hover:bg-primary-container/10 transition-transform duration-200"
+                    href="notes.html" aria-label="الملاحظات">
+                    <span class="material-symbols-outlined">description</span>
+                    <span class="text-[10px] font-bold">الملاحظات</span>
+                </a>
+                <!-- Assignments -->
+                <a class="flex flex-col items-center justify-center h-12 w-full text-on-surface-variant hover:bg-primary-container/10 transition-transform duration-200"
+                    href="homework.html" aria-label="الواجبات">
+                    <span class="material-symbols-outlined">assignment</span>
+                    <span class="text-[10px] font-bold">الواجبات</span>
+                </a>
+                <!-- Messages -->
+                <a class="flex flex-col items-center justify-center h-12 w-full text-on-surface-variant hover:bg-primary-container/10 transition-transform duration-200"
+                    href="messages.html" aria-label="الرسائل">
+                    <span class="material-symbols-outlined">chat</span>
+                    <span class="text-[10px] font-bold">الرسائل</span>
+                </a>
+                <!-- Settings (ACTIVE) -->
+                <a class="flex flex-col items-center justify-center h-12 w-full text-primary border-r-4 border-primary bg-primary-container/5 transition-transform duration-200"
+                    href="settings.html" aria-label="الإعدادات" aria-current="page">
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings</span>
+                    <span class="text-[10px] font-bold">الإعدادات</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="mr-20 flex-grow p-gutter md:p-margin-desktop overflow-y-auto w-full">
+            <div class="max-w-3xl mx-auto flex flex-col gap-8 pb-24">
+
+                <div>
+                    <h1 class="font-arabic-h1 text-headline-md text-primary mb-2">الإعدادات</h1>
+                    <p class="font-arabic-body text-body-md text-on-surface-variant">Settings — Paramètres</p>
+                </div>
+
+                <!-- Language Section -->
+                <section aria-labelledby="lang-heading"
+                    class="bg-white rounded-xl border border-outline-variant/20 shadow-sm p-gutter">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="material-symbols-outlined text-secondary text-2xl">translate</span>
+                        <h2 id="lang-heading" class="font-headline-sm text-xl text-primary">اللغة</h2>
+                    </div>
+                    <p class="font-arabic-body text-on-surface-variant text-base mb-5">اختر لغة الواجهة والمساعد الصوتي
+                        بصيرة. Language / Langue</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" role="radiogroup" aria-label="اختيار اللغة">
+                        <button type="button"
+                            class="lang-option flex items-center justify-center gap-2 px-4 py-3 rounded-lg border-2 border-primary bg-primary text-white font-bold text-sm transition-all"
+                            role="radio" aria-checked="true" data-lang="ar">
+                            <span>العربية</span>
+                        </button>
+                        <button type="button"
+                            class="lang-option flex items-center justify-center gap-2 px-4 py-3 rounded-lg border-2 border-outline-variant text-outline font-bold text-sm hover:border-primary hover:text-primary transition-all"
+                            role="radio" aria-checked="false" data-lang="fr">
+                            <span>Français</span>
+                        </button>
+                        <button type="button"
+                            class="lang-option flex items-center justify-center gap-2 px-4 py-3 rounded-lg border-2 border-outline-variant text-outline font-bold text-sm hover:border-primary hover:text-primary transition-all"
+                            role="radio" aria-checked="false" data-lang="en">
+                            <span>English</span>
+                        </button>
+                    </div>
+                    <p class="text-xs text-on-surface-variant mt-3 font-arabic-body">يمكنك أيضاً قول: "بصيرة، غيّري
+                        اللغة إلى الفرنسية" من أي صفحة.</p>
+                </section>
+
+                <!-- Speech Rate Section -->
+                <section aria-labelledby="rate-heading"
+                    class="bg-white rounded-xl border border-outline-variant/20 shadow-sm p-gutter">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="material-symbols-outlined text-secondary text-2xl">speed</span>
+                        <h2 id="rate-heading" class="font-headline-sm text-xl text-primary">سرعة الكلام</h2>
+                    </div>
+                    <p class="font-arabic-body text-on-surface-variant text-base mb-6">اضبط سرعة قراءة بصيرة لتناسبك.
+                        Speech rate — Vitesse de la voix</p>
+                    <div class="flex items-center gap-4">
+                        <span class="material-symbols-outlined text-on-surface-variant">slow_motion_video</span>
+                        <input aria-label="سرعة الكلام" aria-valuemin="0.5" aria-valuemax="2" aria-valuenow="1"
+                            class="flex-grow" id="speech-rate" max="2" min="0.5" step="0.1" type="range" value="1" />
+                        <span class="material-symbols-outlined text-on-surface-variant">fast_forward</span>
+                    </div>
+                    <div class="flex justify-center mt-3">
+                        <span class="font-bold text-primary" id="speech-rate-value">1.0×</span>
+                    </div>
+                    <button
+                        class="mt-4 w-full flex items-center justify-center gap-2 py-2.5 rounded-lg border border-outline-variant text-on-surface-variant hover:border-primary hover:text-primary transition-all text-sm font-bold"
+                        id="preview-rate" type="button">
+                        <span class="material-symbols-outlined text-xl">play_circle</span>
+                        <span>تجربة الصوت</span>
+                    </button>
+                </section>
+
+                <!-- Microphone Section -->
+                <section aria-labelledby="mic-heading"
+                    class="bg-white rounded-xl border border-outline-variant/20 shadow-sm p-gutter">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="material-symbols-outlined text-secondary text-2xl">mic</span>
+                        <h2 id="mic-heading" class="font-headline-sm text-xl text-primary">الميكروفون</h2>
+                    </div>
+                    <p class="font-arabic-body text-on-surface-variant text-base mb-5">إذا رفضت السماح بالوصول إلى
+                        الميكروفون سابقاً، أعيدي تفعيله من هنا.</p>
+                    <div class="flex items-center justify-between gap-4 flex-wrap">
+                        <div class="flex items-center gap-3">
+                            <div class="w-3 h-3 rounded-full bg-error" id="mic-status-dot"></div>
+                            <span class="font-arabic-body text-on-surface" id="mic-status-text">الميكروفون غير
+                                مفعّل</span>
+                        </div>
+                        <button
+                            class="flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-white font-bold text-sm hover:bg-primary/90 transition-all"
+                            id="enable-mic-btn" type="button">
+                            <span class="material-symbols-outlined text-xl">mic</span>
+                            <span>تفعيل الميكروفون</span>
+                        </button>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- BottomNavBar (Persistent Listener Status) -->
+    <footer
+        class="fixed bottom-0 left-0 w-full z-50 bg-[#1B3A6B] text-white h-16 shadow-lg flex items-center px-gutter md:px-margin-desktop">
+        <div class="flex items-center gap-4">
+            <div class="bg-secondary-container/20 p-2.5 rounded-full flex items-center justify-center pulse-animation">
+                <span class="material-symbols-outlined text-secondary-fixed text-xl"
+                    style="font-variation-settings: 'FILL' 1;">mic</span>
+            </div>
+            <p class="font-arabic-body text-white text-sm" aria-live="polite" id="voice-status">بصيرة تستمع...</p>
+        </div>
+    </footer>
+
+    <script>
+        // Language selection
+        document.querySelectorAll('.lang-option').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.lang-option').forEach(b => {
+                    b.setAttribute('aria-checked', 'false');
+                    b.classList.remove('border-primary', 'bg-primary', 'text-white');
+                    b.classList.add('border-outline-variant', 'text-outline');
+                });
+                btn.setAttribute('aria-checked', 'true');
+                btn.classList.add('border-primary', 'bg-primary', 'text-white');
+                btn.classList.remove('border-outline-variant', 'text-outline');
+            });
+        });
+
+        // Speech rate display
+        const rateInput = document.getElementById('speech-rate');
+        const rateValue = document.getElementById('speech-rate-value');
+        rateInput.addEventListener('input', () => {
+            rateValue.textContent = parseFloat(rateInput.value).toFixed(1) + '×';
+        });
+
+        // Mic re-enable (permission request; real STT wiring lives in voice_assistant.js)
+        document.getElementById('enable-mic-btn').addEventListener('click', async () => {
+            const dot = document.getElementById('mic-status-dot');
+            const text = document.getElementById('mic-status-text');
+            try {
+                await navigator.mediaDevices.getUserMedia({ audio: true });
+                dot.classList.remove('bg-error');
+                dot.classList.add('bg-secondary');
+                text.textContent = 'الميكروفون مفعّل';
+            } catch (e) {
+                text.textContent = 'تعذّر الوصول إلى الميكروفون — تحقق من إعدادات المتصفح';
+            }
+        });
+    </script>
+</body>
+
+</html>

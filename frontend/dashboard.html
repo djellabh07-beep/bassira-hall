@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>بصيرة - لوحة تحكم الطالب</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&amp;family=Inter:wght@400;600&amp;family=Poppins:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .islamic-pattern-bg {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            opacity: 0.06;
+            pointer-events: none;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        @keyframes pulse-soft {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(0.98); }
+        }
+        .voice-active {
+            animation: pulse-soft 2s infinite ease-in-out;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-container": "#4c3706",
+                        "on-tertiary-fixed-variant": "#594312",
+                        "inverse-surface": "#2f2e43",
+                        "on-tertiary-container": "#bfa066",
+                        "on-secondary-fixed": "#00201c",
+                        "surface-tint": "#425e91",
+                        "on-error": "#ffffff",
+                        "outline-variant": "#c4c6d0",
+                        "primary-container": "#1b3a6b",
+                        "secondary-fixed-dim": "#6fd8c8",
+                        "on-tertiary-fixed": "#261900",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#322200",
+                        "primary": "#002452",
+                        "secondary-container": "#8cf5e4",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#1a1a2e",
+                        "on-secondary-fixed-variant": "#005048",
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#8cf5e4",
+                        "on-error-container": "#93000a",
+                        "on-primary-container": "#89a5dd",
+                        "background": "#fcf8ff",
+                        "inverse-on-surface": "#f2efff",
+                        "outline": "#747780",
+                        "primary-fixed": "#d7e2ff",
+                        "on-primary-fixed-variant": "#294678",
+                        "on-primary-fixed": "#001a40",
+                        "on-secondary-container": "#007166",
+                        "surface-container-highest": "#e2e0fc",
+                        "on-surface-variant": "#44474f",
+                        "surface-container-low": "#f5f2ff",
+                        "surface": "#fcf8ff",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#e3c285",
+                        "tertiary-fixed": "#ffdea3",
+                        "surface-variant": "#e2e0fc",
+                        "surface-container-high": "#e8e5ff",
+                        "surface-container": "#efecff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#1a1a2e",
+                        "surface-dim": "#dad7f3",
+                        "surface-bright": "#fcf8ff",
+                        "primary-fixed-dim": "#acc7ff",
+                        "secondary": "#006a60",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#acc7ff",
+                        "brand-teal": "#2A9D8F",
+                        "brand-teal-light": "#E8F7F5"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    spacing: {
+                        "unit": "8px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "64px",
+                        "touch-target": "48px",
+                        "container-max": "1280px"
+                    },
+                    fontFamily: {
+                        "headline-md": ["Poppins"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-sm": ["Poppins"],
+                        "body-md": ["Inter"],
+                        "arabic-body": ["Cairo"],
+                        "display-lg": ["Poppins"],
+                        "arabic-h1": ["Cairo"]
+                    },
+                    fontSize: {
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "body-lg": ["20px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-md": ["16px", {"lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "headline-sm": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "body-md": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "arabic-body": ["20px", {"lineHeight": "1.8", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "arabic-h1": ["36px", {"lineHeight": "1.4", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-arabic-body min-h-screen relative">
+<!-- Background Shader Layer -->
+
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 right-0 h-touch-target bg-background/80 backdrop-blur-md z-50 flex justify-between items-center px-gutter border-b border-outline-variant/10">
+<!-- Left: Actions -->
+<div class="flex items-center gap-4">
+<div class="flex items-center bg-surface-container-low rounded-full px-3 py-1 gap-2 border border-outline-variant/20">
+<button class="text-label-md font-label-md text-primary hover:text-secondary transition-colors">ع</button>
+<span class="w-px h-4 bg-outline-variant"></span>
+<button class="text-label-md font-label-md text-on-surface-variant hover:text-secondary transition-colors">FR</button>
+<span class="w-px h-4 bg-outline-variant"></span>
+<button class="text-label-md font-label-md text-on-surface-variant hover:text-secondary transition-colors">EN</button>
+</div>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-fixed bg-surface-container">
+<img class="w-full h-full object-cover" alt="A professional studio headshot of a young male student named Ahmed with a friendly expression, wearing modern smart-casual attire against a soft neutral background. The lighting is high-key and professional, matching the clean corporate aesthetic of the Bassira Vision 4.0 brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcWtJpdli_CB5MfqWQi6KPC2XwiLPzgu5H9b-ZME29i3jMlfjpXLr2wjS22g87nSj-TdyYxFMiIPo5V-ssgOyDTEiXRiGxdPp3Vxlb4NpLHErTweG_5_UMsPgkRbheymuqvxqk8y8KW_EJVrmGCa8k2sN1OS7LHew6IUFqFo17GGiU_JziVf8Bv-35i0dZqT-AcC-7KHBJ60sB6YSTAPzo3MRDkGi3kEMSKO-5DmexmfTuWY0uVUfAyg"/>
+</div>
+</div>
+<!-- Right: Logo -->
+<div class="flex items-center gap-4 h-12">
+<div class="flex flex-col items-end">
+<span class="text-headline-sm font-headline-sm font-bold text-primary">بصيرة Bassira</span>
+<span class="text-[10px] tracking-[0.2em] font-headline-sm text-outline uppercase -mt-1">Vision 4.0</span>
+</div>
+<img alt="Bassira Logo" class="h-10 w-auto" src="https://lh3.googleusercontent.com/aida/AP1WRLvK4Tzwv2JxAD2ezZ8ouiHy--M9gOV2VGoJLbwrf2rgm4qClc8LQa8AoL9vyHi0jfRWMUQoYi0n0WK9kBb-4K8cVteAEa3jJJ0Z8gLkYPRA3G-fVUQNV_elWUdoUT8PoJAJekJxxwYTnOAp1LqGrJO2fMMOXSv3Zg6rHiz5tBdAhxDrvurY8Qrs5SzHHkY7zRyA1TsjuvAje9_3RF3Xe964DK4ezU7eitTooLehhWjT5yvixhbhRtBqETCt"/>
+</div>
+</header>
+<!-- SideNavBar -->
+<nav class="fixed right-0 top-0 h-full w-20 bg-surface-container-lowest border-l border-outline-variant/20 flex flex-col py-24 items-center z-40 gap-8 shadow-sm">
+
+<button class="w-12 h-12 flex items-center justify-center rounded-xl text-on-surface-variant hover:bg-primary-container/10 transition-all hover:scale-105" aria-label="الرئيسية">
+<span class="material-symbols-outlined">home</span>
+</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-xl text-on-surface-variant hover:bg-primary-container/10 transition-all hover:scale-105" aria-label="مقرراتي">
+<span class="material-symbols-outlined">library_books</span>
+</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-xl text-on-surface-variant hover:bg-primary-container/10 transition-all hover:scale-105" aria-label="ملاحظاتي">
+<span class="material-symbols-outlined">description</span>
+</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-xl text-on-surface-variant hover:bg-primary-container/10 transition-all hover:scale-105" aria-label="واجباتي">
+<span class="material-symbols-outlined">assignment</span>
+</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-xl text-on-surface-variant hover:bg-primary-container/10 transition-all hover:scale-105" aria-label="رسائلي">
+<span class="material-symbols-outlined">chat</span>
+</button>
+<div class="mt-auto">
+<button class="w-12 h-12 flex items-center justify-center rounded-xl bg-primary/10 text-sand-gold border-r-4 border-sand-gold transition-all hover:scale-105" aria-label="لوحة التحكم" aria-current="page">
+<span class="material-symbols-outlined material-symbols-fill">dashboard</span>
+</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-xl text-on-surface-variant hover:bg-primary-container/10 transition-all hover:scale-105" aria-label="الإعدادات">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="mr-20 pt-24 pb-48 px-margin-desktop max-w-container-max mx-auto">
+<!-- Greeting Header -->
+<section class="mb-12">
+<p class="text-[22px] text-on-surface-variant mb-1">مرحباً بك،</p>
+<h1 class="font-arabic-h1 text-arabic-h1 text-primary">أحمد محمد</h1>
+<div class="flex items-center gap-4 mt-4">
+<div class="h-0.5 flex-grow bg-secondary/30 rounded-full"></div>
+<span class="text-label-md text-secondary font-semibold">الاثنين، ٢٠ مايو ٢٠٢٤</span>
+</div>
+</section>
+<!-- Metrics Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+<!-- Courses Card -->
+<div class="glass-card p-8 rounded-xl shadow-sm border-t-4 border-secondary flex flex-col justify-between h-56 transition-transform hover:-translate-y-1">
+<div class="flex justify-between items-start">
+<div class="w-14 h-14 bg-secondary/10 rounded-xl flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-4xl">auto_stories</span>
+</div>
+<button class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white shadow-lg hover:bg-primary/90">
+<span class="material-symbols-outlined">play_arrow</span>
+</button>
+</div>
+<div>
+<h3 class="text-headline-sm text-primary mb-1">مقرراتي</h3>
+<p class="text-body-md text-on-surface-variant">٣ مقررات نشطة</p>
+</div>
+</div>
+<!-- Notes Card -->
+<div class="glass-card p-8 rounded-xl shadow-sm border-t-4 border-primary flex flex-col justify-between h-56 transition-transform hover:-translate-y-1">
+<div class="flex justify-between items-start">
+<div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-4xl">sticky_note_2</span>
+</div>
+<button class="px-4 py-2 border-2 border-primary text-primary font-bold rounded-lg hover:bg-primary/5 transition-colors">
+                        فتح
+                    </button>
+</div>
+<div>
+<h3 class="text-headline-sm text-primary mb-1">ملاحظاتي</h3>
+<p class="text-body-md text-on-surface-variant">٧ ملفات محفوظة</p>
+</div>
+</div>
+<!-- Homework Card -->
+<div class="glass-card p-8 rounded-xl shadow-sm border-t-4 border-sand-gold flex flex-col justify-between h-56 transition-transform hover:-translate-y-1">
+<div class="flex justify-between items-start">
+<div class="w-14 h-14 bg-sand-gold/10 rounded-xl flex items-center justify-center text-sand-gold">
+<span class="material-symbols-outlined text-4xl">assignment_late</span>
+</div>
+<span class="bg-error/10 text-error px-3 py-1 rounded-full text-label-md font-bold flex items-center gap-1">
+                        عاجل
+                    </span>
+</div>
+<div>
+<h3 class="text-headline-sm text-primary mb-1">واجباتي</h3>
+<p class="text-body-md text-on-surface-variant">واجب معلق</p>
+</div>
+</div>
+</section>
+<!-- Activity Feed -->
+<section>
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-headline-sm text-primary">آخر الأنشطة</h2>
+<button class="text-secondary font-bold hover:underline">عرض الكل</button>
+</div>
+<div class="space-y-4">
+<!-- Activity Item 1 -->
+<div class="bg-white p-6 rounded-xl flex items-center gap-6 shadow-sm border border-outline-variant/10 hover:border-primary/20 transition-all">
+<div class="w-16 h-16 rounded-lg bg-surface-container flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" alt="An artistic high-quality 3D render of an ancient Arabic manuscript opened to a page with elegant calligraphy. The image has a soft-focus background with warm, intellectual lighting. Deep teal and gold accents consistent with the Bassira corporate identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzs897Z__pfoNjr-LuCKourNzIWB_RXkj7bueNS25io9oomwUI-2j8uJm3xK2Hv1JLF6oL92iWyEnrmkAO2npOjaNMwMHgVCjoVRGsAbAS7I-jDuhSE25QIZK8fPtEwZynzgBgGuyJgz9xGF6zwbAFlyyLas9bhyblXxaAdVI6DM4jGvbKXaA7I3NiY34fCSHjDySYvLUobCsx6wyqIxzE2ncBBsPV0Rk5MS-LNz4LR3nUe3nWGeOfBg"/>
+</div>
+<div class="flex-grow">
+<h4 class="text-body-lg font-bold text-primary">تاريخ الحضارة الإسلامية</h4>
+<p class="text-body-md text-on-surface-variant">الفصل الرابع: العصر العباسي</p>
+</div>
+<button class="bg-secondary text-white px-6 py-2 rounded-lg font-bold hover:bg-secondary/90 transition-all">متابعة</button>
+</div>
+<!-- Activity Item 2 -->
+<div class="bg-white p-6 rounded-xl flex items-center gap-6 shadow-sm border border-outline-variant/10 hover:border-primary/20 transition-all">
+<div class="w-16 h-16 rounded-lg bg-surface-container flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" alt="A clean, minimalist composition of a traditional wooden pen (Qalam) and a modern tablet side-by-side, representing the fusion of traditional Arabic literature and modern technology. Bright, airy light-mode styling with high-contrast steel blue shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3xjA1GWXwjHS1zjBiRYqjYvPjgNR_ay0CN2Aj5eOxd3c7eWRojduLdsmuINVWMo2r_ASi_ENTrLJFLIcBZYXE0t4qmJgg-A7wEoZf0Fz_mCX7uVdaVTAUDks4rVab0ypv_cpx2MCfUMT71CdxveM5XYj9JmuCF-g1xpwSqw62wk2wR46TlNYDrsdSA9X7IPILaofwjP69_CQcJLMNN5umVkZ9z5QTzjvVFmy7SPM-krEDqmy4C3ZIoQ"/>
+</div>
+<div class="flex-grow">
+<h4 class="text-body-lg font-bold text-primary">الأدب العربي</h4>
+<p class="text-body-md text-on-surface-variant">مراجعة: المعلقات السبع</p>
+</div>
+<button class="bg-secondary text-white px-6 py-2 rounded-lg font-bold hover:bg-secondary/90 transition-all">متابعة</button>
+</div>
+<!-- Activity Item 3 -->
+<div class="bg-white p-6 rounded-xl flex items-center gap-6 shadow-sm border border-outline-variant/10 hover:border-primary/20 transition-all">
+<div class="w-16 h-16 rounded-lg bg-surface-container flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" alt="A conceptual digital illustration of a stylized brain made of geometric light patterns and a book. The style is modern, intellectual, and visionary. Palette uses primary-container blue and inverse-surface tones with high-key lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8baryrYy_UzYi5yj0RCwNBlK0W-goP1fXtOeMQj2IEyRL5YSyKZKKgszypFwb4e19A7DprClgy7vcLRpWNdIK1nxOFuM1RD-CvGXMqoXm3x3OvLJ3s1K9ULitEaWli3MyJh6gZ2Y8mllapn0qnXL9y2s6KGBBUoSrWc4Yt7YXZJQ5dYjAK9j_nlCchh7sCFhiZLTt9wkeHNY_c5DcOAYfLCNj4SKV1W1FQ7O_q3wTiM28upcFMompwQ"/>
+</div>
+<div class="flex-grow">
+<h4 class="text-body-lg font-bold text-primary">الفلسفة والمنطق</h4>
+<p class="text-body-md text-on-surface-variant">مقدمة في نظرية المعرفة</p>
+</div>
+<button class="bg-secondary text-white px-6 py-2 rounded-lg font-bold hover:bg-secondary/90 transition-all">متابعة</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Voice Interaction Shell -->
+<div class="fixed bottom-0 left-0 w-full z-50 px-margin-desktop pb-8 flex flex-col items-center pointer-events-none">
+<!-- Voice Hints -->
+<div class="flex gap-4 mb-4 pointer-events-auto">
+<div class="bg-white/90 backdrop-blur px-6 py-2 rounded-full shadow-md border border-outline-variant/20 text-on-surface-variant text-label-md flex items-center gap-2 cursor-pointer hover:bg-white transition-all">
+<span class="material-symbols-outlined text-secondary">record_voice_over</span>
+                قل "افتح المقررات"
+            </div>
+<div class="bg-white/90 backdrop-blur px-6 py-2 rounded-full shadow-md border border-outline-variant/20 text-on-surface-variant text-label-md flex items-center gap-2 cursor-pointer hover:bg-white transition-all">
+<span class="material-symbols-outlined text-secondary">record_voice_over</span>
+                قل "ملاحظاتي"
+            </div>
+</div>
+<!-- BottomNavBar (Voice Strip) -->
+<div class="w-full max-w-4xl h-24 bg-primary-container rounded-t-[48px] shadow-2xl flex items-center justify-between px-12 pointer-events-auto overflow-hidden">
+<div class="flex items-center gap-6">
+<div class="relative">
+<div class="absolute -inset-2 bg-secondary/20 rounded-full voice-active"></div>
+<div class="w-12 h-12 bg-on-primary rounded-full flex items-center justify-center text-primary relative z-10">
+<span class="material-symbols-outlined text-2xl material-symbols-fill">mic</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="text-on-primary font-bold text-arabic-body" role="status" aria-live="polite">المساعد الصوتي — جاهز</span>
+<span class="text-on-primary-container text-[14px]">تحدث الآن للبحث أو التنقل</span>
+</div>
+</div>
+<!-- Animated Soundwave Area -->
+<div class="flex-grow max-w-md mx-8 h-16 rounded-xl overflow-hidden bg-primary/20 flex items-center justify-center">
+
+</div>
+<div class="flex items-center gap-4 text-secondary-container">
+<span class="material-symbols-outlined cursor-pointer hover:scale-110 transition-transform">close</span>
+</div>
+</div>
+</div>
+<script>
+        // Simple micro-interaction for active states
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.style.transform = 'scale(0.95)';
+                setTimeout(() => btn.style.transform = 'scale(1)', 150);
+            });
+        });
+
+        // Simulating voice hint clicking
+        document.querySelectorAll('.pointer-events-auto div').forEach(hint => {
+            hint.addEventListener('click', () => {
+                const text = hint.textContent.trim().replace('قل ', '');
+                console.log('Voice Command Triggered:', text);
+                // Visual feedback
+                hint.classList.add('bg-secondary', 'text-white');
+                setTimeout(() => hint.classList.remove('bg-secondary', 'text-white'), 500);
+            });
+        });
+    </script>
+</body></html>

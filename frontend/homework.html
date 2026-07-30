@@ -6,13 +6,113 @@
 <title>بصيرة - الواجبات</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&amp;family=Poppins:wght@400;600;700&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="assets/css/base.css" rel="stylesheet">
-<script src="assets/js/tailwind-config.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                        "tertiary-container": "#4c3706",
+                        "on-tertiary-fixed-variant": "#594312",
+                        "inverse-surface": "#2f2e43",
+                        "on-tertiary-container": "#bfa066",
+                        "on-secondary-fixed": "#00201c",
+                        "surface-tint": "#425e91",
+                        "on-error": "#ffffff",
+                        "outline-variant": "#c4c6d0",
+                        "primary-container": "#1b3a6b",
+                        "secondary-fixed-dim": "#6fd8c8",
+                        "on-tertiary-fixed": "#261900",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#322200",
+                        "primary": "#002452",
+                        "secondary-container": "#8cf5e4",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#1a1a2e",
+                        "on-secondary-fixed-variant": "#005048",
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#8cf5e4",
+                        "on-error-container": "#93000a",
+                        "on-primary-container": "#89a5dd",
+                        "background": "#fcf8ff",
+                        "inverse-on-surface": "#f2efff",
+                        "outline": "#747780",
+                        "primary-fixed": "#d7e2ff",
+                        "on-primary-fixed-variant": "#294678",
+                        "on-primary-fixed": "#001a40",
+                        "on-secondary-container": "#007166",
+                        "surface-container-highest": "#e2e0fc",
+                        "on-surface-variant": "#44474f",
+                        "surface-container-low": "#f5f2ff",
+                        "surface": "#fcf8ff",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#e3c285",
+                        "tertiary-fixed": "#ffdea3",
+                        "surface-variant": "#e2e0fc",
+                        "surface-container-high": "#e8e5ff",
+                        "surface-container": "#efecff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#1a1a2e",
+                        "surface-dim": "#dad7f3",
+                        "surface-bright": "#fcf8ff",
+                        "primary-fixed-dim": "#acc7ff",
+                        "secondary": "#006a60",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#acc7ff",
+                        "brand-teal": "#2A9D8F",
+                        "brand-teal-light": "#E8F7F5"
+                    },
+            "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+            },
+            "spacing": {
+                "touch-target": "48px",
+                "container-max": "1280px",
+                "margin-mobile": "16px",
+                "margin-desktop": "64px",
+                "unit": "8px",
+                "gutter": "24px"
+            },
+            "fontFamily": {
+                "headline-md": ["Poppins"],
+                "display-lg": ["Poppins"],
+                "body-lg": ["Inter"],
+                "arabic-h1": ["Cairo"],
+                "arabic-body": ["Cairo"],
+                "label-md": ["Inter"],
+                "body-md": ["Inter"],
+                "headline-sm": ["Poppins"],
+                "display-lg-mobile": ["Poppins"]
+            },
+            "fontSize": {
+                "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                "display-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                "body-lg": ["20px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "arabic-h1": ["36px", {"lineHeight": "1.4", "fontWeight": "700"}],
+                "arabic-body": ["20px", {"lineHeight": "1.8", "fontWeight": "400"}],
+                "label-md": ["16px", {"lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                "body-md": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "headline-sm": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                "display-lg-mobile": ["36px", {"lineHeight": "1.2", "fontWeight": "700"}]
+            }
+          }
+        }
+      }
+    </script>
 <style>
         body {
             background-color: #F7F8FC;
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l2.598 15h15l-12.402 8.745L40.196 40 30 31.255 19.804 40l5-16.255L12.402 15h15L30 0z' fill='%231b3a6b' fill-opacity='0.06' fill-rule='evenodd'/%3E%3C/svg%3E");
             font-family: 'Cairo', sans-serif;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
 
         .pulse-animation {
@@ -54,23 +154,26 @@
 <span class="font-headline-sm text-headline-sm text-primary font-bold">ب</span>
 </div>
 <nav class="flex flex-col gap-6 w-full">
-<a class="text-on-surface-variant flex items-center justify-center h-12 w-full hover:bg-primary-container/10 transition-transform duration-200" href="index.html" aria-label="الرئيسية">
+<a class="text-on-surface-variant flex items-center justify-center h-12 w-full hover:bg-primary-container/10 transition-transform duration-200" href="#" aria-label="الرئيسية">
 <span class="material-symbols-outlined">home</span>
 </a>
-<a class="text-on-surface-variant flex items-center justify-center h-12 w-full hover:bg-primary-container/10 transition-transform duration-200" href="courses.html" aria-label="المقررات">
+<a class="text-on-surface-variant flex items-center justify-center h-12 w-full hover:bg-primary-container/10 transition-transform duration-200" href="#" aria-label="مقرراتي">
 <span class="material-symbols-outlined">library_books</span>
 </a>
-<a class="text-on-surface-variant flex items-center justify-center h-12 w-full hover:bg-primary-container/10 transition-transform duration-200" href="notes.html" aria-label="الملاحظات">
+<a class="text-on-surface-variant flex items-center justify-center h-12 w-full hover:bg-primary-container/10 transition-transform duration-200" href="#" aria-label="ملاحظاتي">
 <span class="material-symbols-outlined">description</span>
 </a>
 <!-- Active State: الواجبات -->
-<a class="text-primary border-r-4 border-primary flex items-center justify-center h-12 w-full bg-primary-container/5" href="homework.html" aria-label="الواجبات" aria-current="page">
+<a class="text-primary border-r-4 border-primary flex items-center justify-center h-12 w-full bg-primary-container/5" href="#" aria-label="واجباتي" aria-current="page">
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">assignment</span>
 </a>
-<a class="text-on-surface-variant flex items-center justify-center h-12 w-full hover:bg-primary-container/10 transition-transform duration-200" href="messages.html" aria-label="الرسائل">
+<a class="text-on-surface-variant flex items-center justify-center h-12 w-full hover:bg-primary-container/10 transition-transform duration-200" href="#" aria-label="رسائلي">
 <span class="material-symbols-outlined">chat</span>
 </a>
-<a class="text-on-surface-variant flex items-center justify-center h-12 w-full mt-auto hover:bg-primary-container/10 transition-transform duration-200" href="settings.html" aria-label="الإعدادات">
+<a class="text-on-surface-variant flex items-center justify-center h-12 w-full hover:bg-primary-container/10 transition-transform duration-200" href="#" aria-label="لوحة التحكم">
+<span class="material-symbols-outlined">dashboard</span>
+</a>
+<a class="text-on-surface-variant flex items-center justify-center h-12 w-full mt-auto hover:bg-primary-container/10 transition-transform duration-200" href="#" aria-label="الإعدادات">
 <span class="material-symbols-outlined">settings</span>
 </a>
 </nav>
@@ -86,7 +189,7 @@
 <span>العربية</span>
 </div>
 <div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden">
-<img class="w-full h-full object-cover" data-alt="A professional studio headshot of a middle-aged academic professional wearing glasses, looking towards the camera with a warm, encouraging smile. The background is a clean, bright minimalist office environment with soft natural lighting that complements the light blue corporate theme. High-resolution digital photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGjQXT0Gr98cksjdLPGJK1U7S5Dde9v6UeFdU-eWTXpizRxPLHjorqhxH5YK47sfzqYYGiUzb3yoXHYULbCpOOwsK944c39BRWlngBkdlQdFhlqhH3_a6BuloRkX0d0_FzPJ6-6POtBuNMEmGDI4BqSLHN_FLnNB8vg9sApuRGlyo0ITFwkI2EGJQzKqw-icAjNGgC-JrIilnlTnPvAVisyWJIefNqF8X2Bxh3ZSNa7ZqBMO1lVQV0Ag"/>
+<img class="w-full h-full object-cover" alt="A professional studio headshot of a middle-aged academic professional wearing glasses, looking towards the camera with a warm, encouraging smile. The background is a clean, bright minimalist office environment with soft natural lighting that complements the light blue corporate theme. High-resolution digital photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGjQXT0Gr98cksjdLPGJK1U7S5Dde9v6UeFdU-eWTXpizRxPLHjorqhxH5YK47sfzqYYGiUzb3yoXHYULbCpOOwsK944c39BRWlngBkdlQdFhlqhH3_a6BuloRkX0d0_FzPJ6-6POtBuNMEmGDI4BqSLHN_FLnNB8vg9sApuRGlyo0ITFwkI2EGJQzKqw-icAjNGgC-JrIilnlTnPvAVisyWJIefNqF8X2Bxh3ZSNa7ZqBMO1lVQV0Ag"/>
 </div>
 </div>
 </header>
@@ -198,7 +301,7 @@
 <span class="material-symbols-outlined text-[32px] text-white" style="font-variation-settings: 'FILL' 1;">mic</span>
 </div>
 <div class="flex flex-col">
-<span class="font-arabic-body font-bold text-white">المساعد الصوتي — يستمع</span>
+<span class="font-arabic-body font-bold text-white" role="status" aria-live="polite">المساعد الصوتي — يستمع</span>
 <span class="text-label-md opacity-80">وضع الواجب — نشط</span>
 </div>
 </div>
