@@ -1,0 +1,248 @@
+<!DOCTYPE html><html dir="rtl" lang="ar" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>مقرراتي - Bassira بصيرة</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&amp;family=Poppins:wght@600;700&amp;family=Inter:wght@400;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="assets/css/base.css" rel="stylesheet">
+<script src="assets/js/tailwind-config.js"></script>
+<style>
+        .pulse-animation {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(0.98); }
+        }
+        .soundwave-bar {
+            animation: wave 1.2s ease-in-out infinite;
+        }
+        @keyframes wave {
+            0%, 100% { height: 8px; }
+            50% { height: 24px; }
+        }
+        .soundwave-bar:nth-child(2) { animation-delay: 0.1s; }
+        .soundwave-bar:nth-child(3) { animation-delay: 0.2s; }
+        .soundwave-bar:nth-child(4) { animation-delay: 0.3s; }
+        .active-glow {
+            box-shadow: 0 0 15px rgba(0, 106, 96, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-arabic-body selection:bg-secondary-container">
+<!-- Watermark Background -->
+<div class="fixed inset-0 pointer-events-none z-0 opacity-[0.06]">
+
+</div>
+<!-- Right Sidebar Navigation -->
+<nav class="fixed right-0 top-0 h-full w-20 bg-surface-container-lowest dark:bg-inverse-surface border-l border-outline-variant/20 flex flex-col py-8 z-40 shadow-sm transition-transform duration-200">
+<div class="flex flex-col items-center gap-8 h-full">
+<div class="w-12 h-12 flex items-center justify-center">
+<span class="text-primary font-headline-sm text-headline-sm">B</span>
+</div>
+<div class="flex flex-col gap-4 w-full flex-grow">
+<a class="flex items-center justify-center h-12 w-full text-on-surface-variant hover:bg-primary-container/10 transition-colors" href="index.html" aria-label="الرئيسية">
+<span class="material-symbols-outlined">home</span>
+</a>
+<!-- Active Item: المقررات -->
+<a class="flex items-center justify-center h-12 w-full text-primary border-r-4 border-tertiary-fixed-dim bg-tertiary-fixed/10" href="courses.html" aria-label="المقررات" aria-current="page">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">library_books</span>
+</a>
+<a class="flex items-center justify-center h-12 w-full text-on-surface-variant hover:bg-primary-container/10 transition-colors" href="notes.html" aria-label="الملاحظات">
+<span class="material-symbols-outlined">description</span>
+</a>
+<a class="flex items-center justify-center h-12 w-full text-on-surface-variant hover:bg-primary-container/10 transition-colors" href="homework.html" aria-label="الواجبات">
+<span class="material-symbols-outlined">assignment</span>
+</a>
+<a class="flex items-center justify-center h-12 w-full text-on-surface-variant hover:bg-primary-container/10 transition-colors" href="messages.html" aria-label="الرسائل">
+<span class="material-symbols-outlined">chat</span>
+</a>
+</div>
+<div class="mt-auto">
+<a class="flex items-center justify-center h-12 w-full text-on-surface-variant hover:bg-primary-container/10 transition-colors" href="settings.html" aria-label="الإعدادات">
+<span class="material-symbols-outlined">settings</span>
+</a>
+</div>
+</div>
+</nav>
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 left-0 right-0 h-touch-target bg-background/80 backdrop-blur-md z-50 flex justify-between items-center px-gutter md:pr-24">
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 px-3 py-1 rounded-full hover:bg-surface-container-low transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">translate</span>
+<span class="font-label-md text-label-md">العربية</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A professional studio headshot of a blind university student with a warm, confident smile, wearing modern assistive smart glasses. High-key lighting, bright academic background, corporate professional style in soft blues and whites." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNUY_s14DmglH_G-djz7ILcEBrwQnzfT4LVm1zWOpJagvhTUwFI6k1469hQl7UtlTKCXIXmrUbgt5_l3NQiSDfMVuAj7D_jp2yKK-fP4chFIrEPCkl5V-sSI2FUqMNPlxRDep0tV3SRCNETpcbZe3h0CmCXUg1LF5YC1KcrTSciL7BoDD9wKtubj76_vCY5CeHK7jvilmD2Tx5dzTztEBqopz5U5ROTrE3jFuPNtAPpwJg13WLtwvprA">
+</div>
+</div>
+<div class="flex items-center">
+<img alt="Bassira Logo" class="h-10 object-contain" src="https://lh3.googleusercontent.com/aida/AP1WRLvK4Tzwv2JxAD2ezZ8ouiHy--M9gOV2VGoJLbwrf2rgm4qClc8LQa8AoL9vyHi0jfRWMUQoYi0n0WK9kBb-4K8cVteAEa3jJJ0Z8gLkYPRA3G-fVUQNV_elWUdoUT8PoJAJekJxxwYTnOAp1LqGrJO2fMMOXSv3Zg6rHiz5tBdAhxDrvurY8Qrs5SzHHkY7zRyA1TsjuvAje9_3RF3Xe964DK4ezU7eitTooLehhWjT5yvixhbhRtBqETCt">
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="relative z-10 pt-24 pb-48 px-margin-mobile md:px-margin-desktop md:pr-32 max-w-container-max mx-auto">
+<!-- Header Section -->
+<section class="mb-12">
+<h1 class="font-arabic-h1 text-arabic-h1 text-primary mb-2">مقرراتي</h1>
+<p class="font-arabic-body text-arabic-body text-on-surface-variant">اختر مقرراً أو قل اسمه بصوتك</p>
+</section>
+<!-- Search / Voice Bar -->
+<section class="mb-10 max-w-2xl">
+<div class="relative group">
+<input class="w-full h-16 px-6 pr-14 bg-surface-container-lowest border-2 border-secondary/30 rounded-xl font-arabic-body text-on-surface-variant focus:border-secondary focus:ring-0 cursor-pointer transition-all" placeholder="قل اسم المقرر..." readonly="" type="text">
+<div class="absolute right-4 top-1/2 -translate-y-1/2 text-secondary">
+<span class="material-symbols-outlined text-3xl">mic</span>
+</div>
+<div class="absolute left-4 top-1/2 -translate-y-1/2 text-outline">
+<span class="material-symbols-outlined">search</span>
+</div>
+</div>
+</section>
+<!-- Courses Stack -->
+<section class="space-y-6">
+<!-- 1. Active Course: Operating Systems -->
+<div class="bg-[#F0FAFA] rounded-xl border-r-4 border-secondary p-8 active-glow transition-all hover:translate-x-[-4px] flex flex-col md:flex-row items-center gap-8">
+<!-- Right: Icon -->
+<div class="flex-shrink-0 w-20 h-20 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container shadow-sm">
+<span class="material-symbols-outlined text-4xl">settings</span>
+</div>
+<!-- Center: Info & Progress -->
+<div class="flex-grow w-full">
+<div class="flex flex-wrap items-center gap-3 mb-2">
+<h2 class="font-arabic-body text-2xl font-bold text-primary">تفسير القرآن الكريم — الجزء الأول</h2>
+<span class="bg-secondary-container/30 text-on-secondary-container px-3 py-1 rounded-full text-sm font-bold">جاري الاستماع</span>
+</div>
+<p class="text-on-surface-variant font-arabic-body mb-4">أستاذ المادة: د. عبد الله الصالح</p>
+<!-- Chapter Pills -->
+<div class="flex gap-2 mb-6">
+<span class="px-4 py-1 bg-white/60 border border-secondary/20 rounded-full text-sm">الفصل ١</span>
+<span class="px-4 py-1 bg-white/60 border border-secondary/20 rounded-full text-sm">الفصل ٢</span>
+<span class="px-4 py-1 bg-secondary text-white rounded-full text-sm font-bold">الفصل ٣</span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full h-3 bg-white rounded-full overflow-hidden border border-outline-variant/10">
+<div class="h-full bg-secondary w-3/4 rounded-full transition-all duration-1000"></div>
+</div>
+<div class="flex justify-between mt-2 text-sm text-on-surface-variant font-medium">
+<span class="">75% تم إنجازه</span>
+<span class="">١٢:٤٥ / ١٨:٠٠ دقيقة</span>
+</div>
+</div>
+<!-- Left: Action -->
+<div class="flex-shrink-0">
+<button class="flex items-center gap-3 px-8 py-4 border-2 border-primary text-primary rounded-xl font-bold hover:bg-primary/5 transition-all group">
+<span class="material-symbols-outlined text-3xl group-active:scale-90 transition-transform" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+<span class="text-xl">استمع</span>
+</button>
+</div>
+</div>
+<!-- 2. Course: AI -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/20 p-8 shadow-sm transition-all hover:shadow-md flex flex-col md:flex-row items-center gap-8">
+<div class="flex-shrink-0 w-20 h-20 rounded-full bg-surface-container-high flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-4xl">book</span>
+</div>
+<div class="flex-grow w-full">
+<h2 class="font-arabic-body text-2xl font-bold text-primary mb-2">السيرة النبوية</h2>
+<p class="text-on-surface-variant font-arabic-body mb-4">أستاذ المادة: د. مريم العتيبي</p>
+<div class="w-full h-2 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-secondary/60 w-[40%] rounded-full"></div>
+</div>
+</div>
+<div class="flex-shrink-0">
+<button class="flex items-center gap-3 px-8 py-4 border-2 border-outline text-on-surface-variant rounded-xl font-bold hover:bg-surface-container-low transition-all">
+<span class="material-symbols-outlined text-3xl">play_circle</span>
+<span class="text-xl">استمع</span>
+</button>
+</div>
+</div>
+<!-- 3. Course: Java -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/20 p-8 shadow-sm transition-all hover:shadow-md flex flex-col md:flex-row items-center gap-8">
+<div class="flex-shrink-0 w-20 h-20 rounded-full bg-surface-container-high flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-4xl">gavel</span>
+</div>
+<div class="flex-grow w-full">
+<h2 class="font-arabic-body text-2xl font-bold text-primary mb-2">أصول الفقه — المستوى الأول</h2>
+<p class="text-on-surface-variant font-arabic-body mb-4">أستاذ المادة: د. صالح الفوزان</p>
+<div class="w-full h-2 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-secondary/40 w-[15%] rounded-full"></div>
+</div>
+</div>
+<div class="flex-shrink-0">
+<button class="flex items-center gap-3 px-8 py-4 border-2 border-outline text-on-surface-variant rounded-xl font-bold hover:bg-surface-container-low transition-all">
+<span class="material-symbols-outlined text-3xl">play_circle</span>
+<span class="text-xl">استمع</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Persistent Bottom Bar & Voice Assistant -->
+<footer class="fixed bottom-0 left-0 w-full z-50 flex flex-col items-center">
+<!-- Voice Hint Strip -->
+<div class="bg-surface-container-low/90 backdrop-blur-md px-6 py-2 rounded-t-xl border-x border-t border-outline-variant/30 text-on-surface-variant font-label-md text-sm shadow-sm">قل "افتح أصول الفقه المستوى الأول"</div>
+<!-- Main Mic Bar -->
+<div class="w-full bg-primary-container h-24 flex items-center justify-between px-gutter md:px-margin-desktop shadow-[0_-10px_40px_rgba(0,0,0,0.15)] pulse-animation">
+<!-- Left: Controls -->
+<div class="flex items-center gap-6">
+<button class="w-12 h-12 rounded-full border border-on-primary-container/30 text-on-primary-container flex items-center justify-center hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">skip_previous</span>
+</button>
+<button class="w-12 h-12 rounded-full border border-on-primary-container/30 text-on-primary-container flex items-center justify-center hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">pause</span>
+</button>
+</div>
+<!-- Center: Mic & Wave -->
+<div class="flex items-center gap-8">
+<div class="flex items-end gap-1 h-8">
+<div class="soundwave-bar w-1 bg-secondary-container rounded-full h-2"></div>
+<div class="soundwave-bar w-1 bg-secondary-container rounded-full h-4"></div>
+<div class="soundwave-bar w-1 bg-secondary-container rounded-full h-6"></div>
+<div class="soundwave-bar w-1 bg-secondary-container rounded-full h-3"></div>
+<div class="soundwave-bar w-1 bg-secondary-container rounded-full h-5"></div>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-16 h-16 bg-secondary-container text-on-secondary-container rounded-full flex items-center justify-center shadow-lg -mt-8 border-4 border-primary-container">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">mic</span>
+</div>
+<span class="font-arabic-body text-on-primary-container font-bold mt-2">المساعد الصوتي — يستمع</span>
+</div>
+<div class="flex items-end gap-1 h-8 rotate-180">
+<div class="soundwave-bar w-1 bg-secondary-container rounded-full h-2"></div>
+<div class="soundwave-bar w-1 bg-secondary-container rounded-full h-4"></div>
+<div class="soundwave-bar w-1 bg-secondary-container rounded-full h-6"></div>
+<div class="soundwave-bar w-1 bg-secondary-container rounded-full h-3"></div>
+<div class="soundwave-bar w-1 bg-secondary-container rounded-full h-5"></div>
+</div>
+</div>
+<!-- Right: Status -->
+<div class="hidden md:flex items-center gap-4 text-on-primary-container/70">
+<span class="material-symbols-outlined">volume_up</span>
+<span class="font-label-md">السرعة: 1.2x</span>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for microphone pulse or voice response simulation
+        document.querySelector('.h-16.bg-secondary-container').addEventListener('click', () => {
+            const assistantText = document.querySelector('footer span.font-bold');
+            assistantText.innerText = "جاري المعالجة...";
+            setTimeout(() => {
+                assistantText.innerText = "المساعد الصوتي — يستمع";
+            }, 2000);
+        });
+
+        // Hover effect for course cards
+        const cards = document.querySelectorAll('section > div');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.classList.add('scale-[1.01]');
+            });
+            card.addEventListener('mouseleave', () => {
+                card.classList.remove('scale-[1.01]');
+            });
+        });
+    </script>
+
+
+</body></html>

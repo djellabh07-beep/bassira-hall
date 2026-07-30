@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html class="light" dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>بصيرة - قارئ الدروس</title>
+<!-- Material Symbols -->
+<!-- Google Fonts: Cairo & Poppins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="assets/js/tailwind-config.js"></script>
+<style>
+      body {
+        background-color: #F7F8FC;
+        overflow-x: hidden;
+      }
+      .active-nav {
+        border-right-width: 4px;
+        border-color: #002452;
+        background-color: rgba(27, 58, 107, 0.05);
+      }
+      .command-pill {
+        transition: transform 0.2s ease, background-color 0.2s ease;
+      }
+      .command-pill:hover {
+        transform: scale(1.02);
+        background-color: #f0fdfa;
+      }
+      .pulse-dot {
+        animation: pulse 1.5s infinite;
+      }
+      @keyframes pulse {
+        0% { transform: scale(0.95); opacity: 0.7; }
+        50% { transform: scale(1.1); opacity: 1; }
+        100% { transform: scale(0.95); opacity: 0.7; }
+      }
+      .reading-highlight {
+        background-color: #E8F7F5;
+        border-right: 4px solid #2A9D8F;
+        padding: 4px 12px;
+        border-radius: 4px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+      }
+    </style>
+</head>
+<body class="font-arabic-body text-on-surface selection:bg-brand-teal-light">
+<!-- Islamic Geometric Watermark (Shader Layer) -->
+<div class="fixed inset-0 pointer-events-none z-0 opacity-[0.06]">
+
+</div>
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 right-0 h-touch-target bg-background flex justify-between items-center px-gutter z-50 shadow-none">
+<!-- Brand / Logo Right (RTL context, usually right) -->
+<div class="flex items-center gap-4">
+<img alt="Bassira Logo" class="h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AP1WRLvK4Tzwv2JxAD2ezZ8ouiHy--M9gOV2VGoJLbwrf2rgm4qClc8LQa8AoL9vyHi0jfRWMUQoYi0n0WK9kBb-4K8cVteAEa3jJJ0Z8gLkYPRA3G-fVUQNV_elWUdoUT8PoJAJekJxxwYTnOAp1LqGrJO2fMMOXSv3Zg6rHiz5tBdAhxDrvurY8Qrs5SzHHkY7zRyA1TsjuvAje9_3RF3Xe964DK4ezU7eitTooLehhWjT5yvixhbhRtBqETCt"/>
+<span class="font-bold text-primary text-headline-sm">Bassira بصيرة</span>
+</div>
+<!-- Language Switcher Left -->
+<div class="flex items-center gap-4">
+<div class="flex bg-surface-container-low rounded-full p-1 border border-outline-variant/30">
+<button class="px-4 py-1 text-label-md text-primary font-bold">ع</button>
+<div class="w-[1px] h-4 bg-outline-variant my-auto"></div>
+<button class="px-4 py-1 text-label-md text-on-surface-variant hover:text-primary">EN</button>
+<div class="w-[1px] h-4 bg-outline-variant my-auto"></div>
+<button class="px-4 py-1 text-label-md text-on-surface-variant hover:text-primary">FR</button>
+</div>
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">translate</span>
+</button>
+</div>
+</header>
+<!-- SideNavBar (Right) -->
+<nav class="fixed right-0 top-0 h-full w-20 bg-surface-container-lowest border-l border-outline-variant/20 flex flex-col py-8 z-40 mt-touch-target">
+<div class="flex flex-col gap-4 w-full">
+<a class="flex flex-col items-center justify-center gap-1 py-4 text-on-surface-variant hover:bg-primary-container/10 transition-all" href="index.html" aria-label="الرئيسية" title="الرئيسية">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-bold">الرئيسية</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 py-4 text-primary active-nav border-primary transition-all" href="courses.html" aria-label="المقررات" aria-current="page" title="المقررات">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">library_books</span>
+<span class="text-[10px] font-bold">المقررات</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 py-4 text-on-surface-variant hover:bg-primary-container/10" href="notes.html" aria-label="الملاحظات" title="الملاحظات">
+<span class="material-symbols-outlined">description</span>
+<span class="text-[10px] font-bold">الملاحظات</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 py-4 text-on-surface-variant hover:bg-primary-container/10" href="homework.html" aria-label="الواجبات" title="الواجبات">
+<span class="material-symbols-outlined">assignment</span>
+<span class="text-[10px] font-bold">الواجبات</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 py-4 text-on-surface-variant hover:bg-primary-container/10" href="messages.html" aria-label="الرسائل" title="الرسائل">
+<span class="material-symbols-outlined">chat</span>
+<span class="text-[10px] font-bold">الرسائل</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 py-4 text-on-surface-variant hover:bg-primary-container/10" href="settings.html" aria-label="الإعدادات" title="الإعدادات">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-bold">الإعدادات</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Wrapper -->
+<main class="mr-20 mt-touch-target pb-24 relative z-10">
+<!-- Course Context Bar -->
+<section class="bg-surface-container-low/50 backdrop-blur-sm">
+<div class="px-margin-desktop py-4 flex flex-col gap-2">
+<div class="flex items-center gap-2 text-primary/80 font-label-md">
+<span class="material-symbols-outlined text-[18px]">auto_stories</span>
+<span>تفسير القرآن الكريم</span>
+<span class="material-symbols-outlined text-[14px]">arrow_back_ios</span>
+<span>الفصل الأول</span>
+<span class="material-symbols-outlined text-[14px]">arrow_back_ios</span>
+<span class="text-primary font-bold">الصفحة ٢ من ١٢</span>
+</div>
+<!-- Teal Progress Bar -->
+<div class="w-full h-1.5 bg-outline-variant/20 rounded-full overflow-hidden">
+<div class="bg-brand-teal h-full w-[16.6%] rounded-full transition-all duration-1000"></div>
+</div>
+</div>
+</section>
+<!-- Lesson Grid -->
+<div class="px-margin-desktop py-8 grid grid-cols-12 gap-gutter">
+<!-- Left Column: Voice Commands (25%) -->
+<aside class="col-span-12 lg:col-span-3 space-y-gutter">
+<div class="bg-white p-6 rounded-xl border border-outline-variant/30 shadow-sm">
+<div class="flex items-center gap-2 mb-6 text-primary">
+<span class="material-symbols-outlined">record_voice_over</span>
+<h2 class="font-headline-sm text-headline-sm">أوامر صوتية</h2>
+</div>
+<div class="flex flex-col gap-3">
+<button class="command-pill w-full flex items-center justify-between px-4 py-3 rounded-xl border-2 border-primary/10 text-primary hover:border-brand-teal transition-all group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-brand-teal">note_add</span>
+<span class="font-label-md">قل "ملاحظة"</span>
+</div>
+<span class="material-symbols-outlined text-[18px] opacity-0 group-hover:opacity-100 transition-opacity">keyboard_tab</span>
+</button>
+<button class="command-pill w-full flex items-center justify-between px-4 py-3 rounded-xl border-2 border-primary/10 text-primary hover:border-brand-teal transition-all group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-brand-teal">arrow_forward</span>
+<span class="font-label-md">قل "التالي"</span>
+</div>
+<span class="material-symbols-outlined text-[18px] opacity-0 group-hover:opacity-100 transition-opacity">keyboard_tab</span>
+</button>
+<button class="command-pill w-full flex items-center justify-between px-4 py-3 rounded-xl border-2 border-primary/10 text-primary hover:border-brand-teal transition-all group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-brand-teal">pause_circle</span>
+<span class="font-label-md">قل "إيقاف"</span>
+</div>
+<span class="material-symbols-outlined text-[18px] opacity-0 group-hover:opacity-100 transition-opacity">keyboard_tab</span>
+</button>
+<button class="command-pill w-full flex items-center justify-between px-4 py-3 rounded-xl border-2 border-primary/10 text-primary hover:border-brand-teal transition-all group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-brand-teal">replay</span>
+<span class="font-label-md">قل "أعد"</span>
+</div>
+<span class="material-symbols-outlined text-[18px] opacity-0 group-hover:opacity-100 transition-opacity">keyboard_tab</span>
+</button>
+<button class="command-pill w-full flex items-center justify-between px-4 py-3 rounded-xl border-2 border-primary/10 text-primary hover:border-brand-teal transition-all group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-brand-teal">search</span>
+<span class="font-label-md">قل "اذهب لصفحة X"</span>
+</div>
+<span class="material-symbols-outlined text-[18px] opacity-0 group-hover:opacity-100 transition-opacity">keyboard_tab</span>
+</button>
+</div>
+<div class="mt-8 p-4 bg-primary-container/5 rounded-lg border border-primary/5">
+<p class="text-sm text-on-surface-variant leading-relaxed">
+<span class="font-bold">نصيحة:</span> يمكنك تخصيص الأوامر الصوتية من خلال إعدادات الملف الشخصي لسهولة التصفح.
+                        </p>
+</div>
+</div>
+</aside>
+<!-- Right Column: Reading Card (75%) -->
+<article class="col-span-12 lg:col-span-9">
+<div class="bg-white rounded-xl shadow-sm border border-outline-variant/10 min-h-[600px] flex flex-col">
+<!-- Card Header -->
+<div class="p-10 pb-4">
+<h1 class="font-arabic-h1 text-primary mb-6">تفسير سورة الفاتحة</h1>
+<hr class="border-outline-variant/10"/>
+</div>
+<!-- Card Body -->
+<div class="px-10 py-6 text-on-surface flex-grow overflow-y-auto leading-[2.2]">
+<p class="mb-6">سورة الفاتحة هي أول سورة في المصحف الشريف، ولها أسماء كثيرة منها "أم الكتاب" و"السبع المثاني". تبدأ السورة بالبسملة "بسم الله الرحمن الرحيم".</p>
+<div class="reading-highlight mb-6">
+<span class="material-symbols-outlined text-brand-teal">volume_up</span>
+<span>الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ: تعني الشكر والثناء لله وحده لأنه خالق كل شيء ومنعم على عباده.</span>
+</div>
+<p class="mb-6">تتضمن السورة توحيد الألوهية والربوبية والأسماء والصفات، وهي ركن أساسي في كل صلاة، فلا تصح صلاة لمن لم يقرأ بفاتحة الكتاب. </p>
+<p class="mb-6">"الرَّحْمَنِ الرَّحِيمِ": هما اسمان من أسماء الله الحسنى يدلان على سعة رحمته التي شملت كل شيء، وخاصة بعباده المؤمنين في الدنيا والآخرة.</p>
+<p class="mb-6">تختتم السورة بالدعاء لله بالهداية إلى الطريق المستقيم، وهو طريق الذين أنعم الله عليهم من النبيين والصديقين والشهداء والصالحين.</p>
+</div>
+<!-- Card Actions Footer -->
+<div class="px-10 py-8 border-t border-outline-variant/10 flex justify-between items-center">
+<div class="flex gap-4">
+<button class="flex items-center gap-2 text-primary font-bold px-6 py-2 rounded-full border-2 border-primary hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined">bookmark</span>
+                                حفظ الموضع
+                            </button>
+<button class="flex items-center gap-2 text-on-surface-variant font-bold px-6 py-2 rounded-full hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined">share</span>
+                                مشاركة
+                            </button>
+</div>
+<div class="flex items-center gap-6">
+<button class="w-12 h-12 flex items-center justify-center rounded-full bg-outline-variant/10 text-primary hover:bg-outline-variant/20 transition-all">
+<span class="material-symbols-outlined">text_increase</span>
+</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-full bg-outline-variant/10 text-primary hover:bg-outline-variant/20 transition-all">
+<span class="material-symbols-outlined">contrast</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+</div>
+</main>
+<!-- Bottom Bar: Voice Assistant Listener -->
+<footer class="fixed bottom-0 left-0 w-full z-50 bg-primary-container h-24 rounded-t-[40px] shadow-2xl flex items-center justify-center px-margin-desktop border-t border-white/10">
+<div class="flex items-center gap-6 text-white max-w-2xl w-full">
+<div class="relative">
+<div class="absolute inset-0 bg-brand-teal/40 rounded-full blur-xl scale-150 animate-pulse"></div>
+<div class="w-14 h-14 bg-brand-teal rounded-full flex items-center justify-center relative z-10 shadow-lg cursor-pointer hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]">mic</span>
+</div>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-3">
+<span class="text-white font-bold text-lg">يقرأ الآن...</span>
+<span class="w-2 h-2 rounded-full bg-brand-teal pulse-dot"></span>
+</div>
+<p class="text-white/70 text-sm font-label-md">بصيرة تستمع لأوامرك الصوتية، جرب قول "التالي"</p>
+</div>
+<!-- Dynamic Audio Visualizer Placeholder (Simplified) -->
+<div class="flex-grow flex items-center justify-end gap-1 px-4">
+<div class="w-1 h-4 bg-brand-teal/40 rounded-full animate-[bounce_1s_infinite_0ms]"></div>
+<div class="w-1 h-8 bg-brand-teal/60 rounded-full animate-[bounce_1s_infinite_100ms]"></div>
+<div class="w-1 h-12 bg-brand-teal rounded-full animate-[bounce_1s_infinite_200ms]"></div>
+<div class="w-1 h-6 bg-brand-teal/80 rounded-full animate-[bounce_1s_infinite_300ms]"></div>
+<div class="w-1 h-10 bg-brand-teal/60 rounded-full animate-[bounce_1s_infinite_400ms]"></div>
+<div class="w-1 h-4 bg-brand-teal/40 rounded-full animate-[bounce_1s_infinite_500ms]"></div>
+</div>
+<button class="flex items-center gap-2 bg-white/10 hover:bg-white/20 transition-colors px-6 py-3 rounded-full border border-white/20 ml-auto">
+<span class="material-symbols-outlined">stop_circle</span>
+<span class="font-bold text-sm">إيقاف القراءة</span>
+</button>
+</div>
+</footer>
+<script>
+        // Simple Interaction Logic
+        document.querySelectorAll('.command-pill').forEach(button => {
+            button.addEventListener('click', () => {
+                button.classList.add('scale-95');
+                setTimeout(() => button.classList.remove('scale-95'), 150);
+            });
+        });
+
+        // Simulating the reading progress or highlight change
+        const highlight = document.querySelector('.reading-highlight');
+        highlight.addEventListener('click', () => {
+            const speaker = highlight.querySelector('.material-symbols-outlined');
+            speaker.innerText = speaker.innerText === 'volume_up' ? 'volume_off' : 'volume_up';
+        });
+
+        // Smooth visualizer animation logic injection (Tailwind bounce is simple, can be expanded)
+    </script>
+</body></html>

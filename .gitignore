@@ -1,0 +1,16 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+
+# Future backend (PHP)
+vendor/
+*.log
+.env
+
+# Uploads / generated
+uploads/
+*.tmp

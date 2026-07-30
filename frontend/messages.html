@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>بصيرة - الرسائل</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Poppins:wght@400;600;700&family=Inter:wght@400;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="assets/css/base.css" rel="stylesheet">
+<style>
+        /* Custom Islamic Watermark */
+        .islamic-watermark {
+            background-color: #F7F8FC;
+            background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0l10 30 30 10-30 10-10 30-10-30-30-10 30-10z' fill='%231B3A6B' fill-opacity='0.06'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+        }
+
+        .pulse-animation {
+            animation: pulse-teal 2s infinite;
+        }
+
+        @keyframes pulse-teal {
+            0% { box-shadow: 0 0 0 0 rgba(42, 157, 143, 0.4); }
+            70% { box-shadow: 0 0 0 20px rgba(42, 157, 143, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(42, 157, 143, 0); }
+        }
+
+        .chat-container {
+            height: calc(100vh - 64px - 96px);
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #c4c6d0; border-radius: 10px; }
+    </style>
+<script src="assets/js/tailwind-config.js"></script>
+</head>
+<body class="islamic-watermark font-arabic-body text-on-surface">
+<!-- TopNavBar -->
+<header class="fixed right-0 top-0 h-touch-target w-full z-50 bg-background flex justify-between items-center px-gutter shadow-sm">
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 px-4 h-10 hover:bg-surface-container-low transition-colors rounded-lg text-primary">
+<span class="material-symbols-outlined">translate</span>
+<span class="font-label-md">English</span>
+</button>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-bold text-headline-sm text-primary tracking-tight">Bassira بصيرة</span>
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-white">book_online</span>
+</div>
+</div>
+</header>
+<div class="flex pt-16 h-screen">
+<!-- SideNavBar -->
+<aside class="fixed right-0 top-0 h-full w-20 bg-surface-container-lowest border-l border-outline-variant/20 flex flex-col py-8 z-40 items-center gap-6 mt-16">
+<nav class="flex flex-col gap-4 w-full">
+<!-- Home -->
+<a class="flex flex-col items-center justify-center h-12 w-full text-on-surface-variant hover:bg-primary-container/10 transition-transform duration-200" href="index.html" aria-label="الرئيسية">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-bold">الرئيسية</span>
+</a>
+<!-- Courses -->
+<a class="flex flex-col items-center justify-center h-12 w-full text-on-surface-variant hover:bg-primary-container/10 transition-transform duration-200" href="courses.html" aria-label="المقررات">
+<span class="material-symbols-outlined">library_books</span>
+<span class="text-[10px] font-bold">المقررات</span>
+</a>
+<!-- Notes -->
+<a class="flex flex-col items-center justify-center h-12 w-full text-on-surface-variant hover:bg-primary-container/10 transition-transform duration-200" href="notes.html" aria-label="الملاحظات">
+<span class="material-symbols-outlined">description</span>
+<span class="text-[10px] font-bold">الملاحظات</span>
+</a>
+<!-- Assignments -->
+<a class="flex flex-col items-center justify-center h-12 w-full text-on-surface-variant hover:bg-primary-container/10 transition-transform duration-200" href="homework.html" aria-label="الواجبات">
+<span class="material-symbols-outlined">assignment</span>
+<span class="text-[10px] font-bold">الواجبات</span>
+</a>
+<!-- Messages (ACTIVE) -->
+<a class="flex flex-col items-center justify-center h-12 w-full text-primary border-r-4 border-primary bg-primary-container/5 transition-transform duration-200" href="messages.html" aria-label="الرسائل" aria-current="page">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat</span>
+<span class="text-[10px] font-bold">الرسائل</span>
+</a>
+<!-- Settings -->
+<a class="flex flex-col items-center justify-center h-12 w-full text-on-surface-variant hover:bg-primary-container/10 transition-transform duration-200" href="settings.html" aria-label="الإعدادات">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-bold">الإعدادات</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content Area -->
+<main class="mr-20 w-full flex flex-row chat-container">
+<!-- Right Panel: Professors List (35%) -->
+<section class="w-[35%] border-l border-outline-variant/30 flex flex-col bg-white/50 backdrop-blur-sm">
+<div class="p-gutter">
+<h1 class="text-[24px] font-bold text-primary mb-6">أساتذتي</h1>
+<div class="flex flex-col gap-4 overflow-y-auto pr-2">
+<!-- Active Professor Card -->
+<div class="p-4 bg-secondary-container/20 border-r-4 border-secondary rounded-xl flex flex-col gap-3 shadow-sm">
+<div class="flex items-center gap-4">
+<div class="w-14 h-14 rounded-full bg-secondary flex items-center justify-center text-white text-xl font-bold">
+                                    م
+                                </div>
+<div>
+<h2 class="text-[20px] font-bold text-primary leading-tight">د. محمد بن علي</h2>
+<p class="text-[16px] text-on-surface-variant">مقرر التفسير</p>
+</div>
+</div>
+<button class="mt-2 w-full h-touch-target bg-secondary text-white rounded-lg font-bold flex items-center justify-center gap-2 hover:scale-[1.02] transition-transform">
+<span class="material-symbols-outlined">mic</span>
+                                تواصل صوتياً
+                            </button>
+</div>
+<!-- Professor 2 -->
+<div class="p-4 bg-white border border-outline-variant/30 rounded-xl flex flex-col gap-3 hover:bg-surface-container transition-colors group">
+<div class="flex items-center gap-4">
+<div class="relative">
+<div class="w-14 h-14 rounded-full bg-tertiary-container flex items-center justify-center text-white text-xl font-bold">
+                                        س
+                                    </div>
+<div class="absolute -top-1 -right-1 bg-primary text-white text-[10px] px-2 py-0.5 rounded-full flex items-center gap-1 border-2 border-white">
+<span class="w-2 h-2 bg-white rounded-full"></span>
+                                        رسالة جديدة
+                                    </div>
+</div>
+<div>
+<h2 class="text-[20px] font-bold text-primary leading-tight">د. سارة منصور</h2>
+<p class="text-[16px] text-on-surface-variant">مقرر السيرة النبوية</p>
+</div>
+</div>
+<button class="mt-2 w-full h-touch-target border-2 border-secondary text-secondary bg-white rounded-lg font-bold flex items-center justify-center gap-2 group-hover:bg-secondary group-hover:text-white transition-all">
+<span class="material-symbols-outlined">mic</span>
+                                تواصل
+                            </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Left Panel: Chat Area (65%) -->
+<section class="flex-1 flex flex-col relative overflow-hidden">
+<!-- Chat Header -->
+<div class="p-6 bg-white border-b border-outline-variant/20 flex justify-between items-center">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center text-white font-bold">م</div>
+<div>
+<h2 class="text-[20px] font-bold text-primary">د. محمد بن علي</h2>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></span>
+<span class="text-[14px] text-on-surface-variant">متاح الآن</span>
+</div>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center text-primary hover:bg-primary/5">
+<span class="material-symbols-outlined">call</span>
+</button>
+<button class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center text-primary hover:bg-primary/5">
+<span class="material-symbols-outlined">info</span>
+</button>
+</div>
+</div>
+<!-- Chat History -->
+<div class="flex-1 p-gutter overflow-y-auto flex flex-col gap-6 bg-slate-50/30">
+<!-- Received Message -->
+<div class="flex flex-col items-start max-w-[80%]">
+<span class="text-[14px] text-on-surface-variant mb-1 mr-4">د. محمد بن علي</span>
+<div class="bg-white p-6 rounded-2xl rounded-tr-none border-l-4 border-primary shadow-sm">
+<p class="text-[20px] text-on-surface leading-relaxed">السلام عليكم يا بني، اطلعت على بحثك الأخير في تفسير سورة النور، والجهد مبذول فيه تشكر عليه. هل لديك أي استفسار حول الملاحظات التي تركتها؟</p>
+</div>
+<div class="flex items-center gap-2 mt-2 mr-2 text-[14px] text-on-surface-variant">
+<span>10:30 صباحاً</span>
+<span class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[16px]">done_all</span>
+                                تم القراءة
+                            </span>
+</div>
+</div>
+<!-- Sent Message -->
+<div class="flex flex-col items-end max-w-[80%] self-end">
+<span class="text-[14px] text-on-surface-variant mb-1 ml-4">أنت</span>
+<div class="bg-primary p-6 rounded-2xl rounded-tl-none text-white shadow-md">
+<p class="text-[20px] leading-relaxed">وعليكم السلام يا دكتور، شكراً جزيلاً لتقديركم. نعم، كنت أود الاستفسار عن النقطة المتعلقة بأسباب النزول في الآية الخامسة، هل يمكننا مناقشتها صوتياً؟</p>
+</div>
+<div class="flex items-center gap-2 mt-2 ml-2 text-[14px] text-on-surface-variant">
+<span>10:32 صباحاً</span>
+</div>
+</div>
+</div>
+<!-- Compose Area -->
+<div class="p-6 bg-white border-t border-outline-variant/30">
+<div class="relative group">
+<div class="w-full min-h-[64px] bg-surface-container-low rounded-2xl flex items-center px-6 pr-16 text-on-surface-variant text-[18px] border-2 border-transparent focus-within:border-secondary transition-all">
+                            اضغط أو قل "أرسل رسالة للأستاذ بن علي"
+                        </div>
+<button class="absolute right-2 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-xl flex items-center justify-center text-on-surface-variant hover:text-secondary transition-colors">
+<span class="material-symbols-outlined">mic_none</span>
+</button>
+<div class="absolute left-4 top-1/2 -translate-y-1/2 flex gap-4">
+<button class="text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined">attach_file</span></button>
+<button class="text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined">image</span></button>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- BottomNavBar & Persistent Voice Area -->
+<footer class="fixed bottom-0 left-0 w-full z-50 flex flex-col items-center">
+<!-- Voice Hint -->
+<div class="mb-4 bg-primary text-white px-6 py-2 rounded-full shadow-xl flex items-center gap-3 animate-bounce">
+<span class="material-symbols-outlined text-secondary-container">tips_and_updates</span>
+<p class="text-[16px] font-bold">قل "تواصل مع الأستاذ بن علي"</p>
+</div>
+<!-- Mic Bar -->
+<div class="w-full h-24 bg-primary-container flex items-center justify-center px-margin-desktop shadow-2xl border-t border-white/10 rounded-t-[40px]">
+<div class="flex items-center justify-between w-full max-w-5xl">
+<!-- Spacer for layout balance -->
+<div class="hidden md:block w-40"></div>
+<!-- Central Active Mic -->
+<div class="flex flex-col items-center gap-1">
+<button class="w-20 h-20 bg-primary rounded-full flex items-center justify-center text-white shadow-inner relative group pulse-animation">
+<span class="material-symbols-outlined text-[40px]">mic</span>
+<!-- Visual soundwave simulation -->
+<div class="absolute inset-0 rounded-full border-4 border-secondary opacity-20 scale-125"></div>
+<div class="absolute inset-0 rounded-full border-2 border-secondary opacity-40 scale-110"></div>
+</button>
+<span class="text-white text-[14px] font-bold">المساعد الصوتي — يستمع</span>
+</div>
+<!-- Visual indicators/controls -->
+<div class="flex items-center gap-8">
+<div class="flex flex-col items-center gap-1">
+<div class="flex gap-1 h-8 items-center">
+<div class="w-1 h-4 bg-secondary rounded-full animate-[pulse_1s_infinite_0s]"></div>
+<div class="w-1 h-8 bg-secondary rounded-full animate-[pulse_1s_infinite_0.2s]"></div>
+<div class="w-1 h-5 bg-secondary rounded-full animate-[pulse_1s_infinite_0.4s]"></div>
+<div class="w-1 h-7 bg-secondary rounded-full animate-[pulse_1s_infinite_0.1s]"></div>
+<div class="w-1 h-3 bg-secondary rounded-full animate-[pulse_1s_infinite_0.3s]"></div>
+</div>
+<span class="text-on-primary-container text-[12px]">التعرف على الصوت</span>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for simulated listening
+        const micBtn = document.querySelector('.pulse-animation');
+        let isListening = true;
+
+        micBtn.addEventListener('click', () => {
+            isListening = !isListening;
+            if (isListening) {
+                micBtn.classList.add('pulse-animation');
+                micBtn.querySelector('span').innerText = 'mic';
+                document.querySelector('.h-24 span.text-white').innerText = 'المساعد الصوتي — يستمع';
+            } else {
+                micBtn.classList.remove('pulse-animation');
+                micBtn.querySelector('span').innerText = 'mic_off';
+                document.querySelector('.h-24 span.text-white').innerText = 'المساعد الصوتي — متوقف';
+            }
+        });
+    </script>
+</body></html>

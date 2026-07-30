@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>بصيرة - ملاحظاتي</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&amp;family=Poppins:wght@400;600;700&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="assets/css/base.css" rel="stylesheet">
+<script src="assets/js/tailwind-config.js"></script>
+<style>
+        body {
+            background-color: #F7F8FC;
+            font-family: 'Cairo', sans-serif;
+        }
+        .watermark {
+            background-image: url('https://www.transparenttextures.com/patterns/islamic-art.png');
+            opacity: 0.06;
+            pointer-events: none;
+        }
+        .pulse-animation {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .7; }
+        }
+        .blue-gray-shadow {
+            box-shadow: 0 4px 20px -2px rgba(27, 58, 107, 0.1);
+        }
+    </style>
+</head>
+<body class="min-h-screen text-on-background relative overflow-x-hidden">
+<!-- Islamic Watermark Background -->
+<div class="fixed inset-0 watermark z-0"></div>
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 right-0 bg-background h-touch-target z-50 flex justify-between items-center px-gutter border-b border-outline-variant/10">
+<div class="flex items-center gap-4">
+<span class="font-headline-sm text-headline-sm font-bold text-primary">Bassira بصيرة</span>
+</div>
+<div class="flex items-center gap-6">
+<button class="flex items-center gap-2 text-on-surface-variant hover:bg-surface-container-low transition-colors p-2 rounded-lg">
+<span class="material-symbols-outlined">translate</span>
+<span class="font-label-md text-label-md">Language</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center">
+<img class="w-full h-full rounded-full object-cover" data-alt="A professional headshot of a blind university student wearing glasses, smiling warmly against a soft-focus campus background. The lighting is natural and bright, echoing the professional and accessible aesthetic of the Bassira platform. High-end portrait photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQ1Ka07_U_poZ3BUeCDcXk-550SaqPX1kmHNz3cx1LWz3C7lLVENrQHQwdlSF7YOGuP9aEjxBYHIRCTp-zmq6DoVyR94qZMo11vrAfRRCwpclXvDZO_V3-Ve_6Wqg1oTlnuvt4ghGpTlolbIVGGJpfnDAghU9GcrqWfqVfRChNoe3tsIdJm9qzNZKhNZ2Z386uRryubQTdPA_CX7_8n6vT8xqOKptVIyzq7j1mGszwWbIcwkZH2uhE0g"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<nav class="fixed right-0 top-0 h-full w-20 bg-surface-container-lowest border-l border-outline-variant/20 flex flex-col py-8 z-40 mt-12">
+<div class="flex flex-col gap-8 items-center">
+<!-- Home -->
+<a class="text-on-surface-variant hover:bg-primary-container/10 transition-transform duration-200 p-3 rounded-xl" href="index.html" aria-label="الرئيسية">
+<span class="material-symbols-outlined text-2xl">home</span>
+</a>
+<!-- Courses -->
+<a class="text-on-surface-variant hover:bg-primary-container/10 transition-transform duration-200 p-3 rounded-xl" href="courses.html" aria-label="المقررات">
+<span class="material-symbols-outlined text-2xl">library_books</span>
+</a>
+<!-- Notes (Active) -->
+<a class="text-primary border-r-4 border-primary flex items-center justify-center h-12 w-full bg-primary-container/5" href="notes.html" aria-label="الملاحظات" aria-current="page">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">description</span>
+</a>
+<!-- Assignments -->
+<a class="text-on-surface-variant hover:bg-primary-container/10 transition-transform duration-200 p-3 rounded-xl" href="homework.html" aria-label="الواجبات">
+<span class="material-symbols-outlined text-2xl">assignment</span>
+</a>
+<!-- Messages -->
+<a class="text-on-surface-variant hover:bg-primary-container/10 transition-transform duration-200 p-3 rounded-xl" href="messages.html" aria-label="الرسائل">
+<span class="material-symbols-outlined text-2xl">chat</span>
+</a>
+<!-- Settings -->
+<a class="text-on-surface-variant hover:bg-primary-container/10 transition-transform duration-200 p-3 rounded-xl mt-auto" href="settings.html" aria-label="الإعدادات">
+<span class="material-symbols-outlined text-2xl">settings</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="mr-20 pt-24 pb-32 px-margin-desktop relative z-10">
+<!-- Header Section -->
+<header class="mb-12">
+<h1 class="font-arabic-h1 text-arabic-h1 text-primary mb-2">ملاحظاتي</h1>
+<p class="font-arabic-body text-arabic-body text-on-surface-variant">افتح ملفاً بصوتك أو استمع للملاحظات المحفوظة</p>
+</header>
+<!-- Voice Search Bar -->
+<section class="mb-12 max-w-2xl">
+<div class="relative">
+<div class="absolute inset-y-0 right-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-secondary text-2xl">mic</span>
+</div>
+<input class="w-full h-touch-target pr-14 pl-6 bg-white border-2 border-secondary rounded-xl font-arabic-body text-arabic-body text-outline cursor-default focus:outline-none shadow-sm" placeholder="قل اسم ملف الملاحظة..." readonly="" type="text"/>
+</div>
+<div class="mt-4 flex items-center gap-2 bg-primary/5 p-4 rounded-lg border border-primary/10">
+<span class="material-symbols-outlined text-primary text-xl">tips_and_updates</span>
+<p class="font-arabic-body text-base text-primary">تلميح صوتي: قل <span class="font-bold underline">"افتح تفسير القرآن واحد ملاحظات"</span></p>
+</div>
+</section>
+<!-- Notes Grid -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-gutter">
+<!-- Note Card 1 -->
+<article class="bg-white rounded-card p-8 blue-gray-shadow flex flex-col gap-4 border-t-4 border-secondary">
+<div class="flex justify-between items-start">
+<span class="bg-secondary/10 text-secondary px-4 py-1 rounded-full font-label-md text-sm font-bold">تفسير</span>
+<span class="text-tertiary font-label-md text-sm">١٤ رمضان ١٤٤٥</span>
+</div>
+<div>
+<h2 class="font-arabic-h1 text-[22px] text-primary mb-1">تفسير القرآن الكريم ١ — ملاحظات</h2>
+<p class="text-on-surface-variant text-sm font-label-md">١٢ ملاحظة مسجلة</p>
+</div>
+<div class="py-4 border-y border-outline-variant/10">
+<p class="text-on-surface-variant italic text-sm font-arabic-body truncate">"تعتبر سورة الفاتحة أساس الصلاة وعظم آيات القرآن الكريم..."</p>
+</div>
+<div class="flex gap-4 mt-2">
+<button class="flex-1 h-touch-target border-2 border-secondary text-secondary rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-secondary/5 transition-colors">
+<span class="material-symbols-outlined">play_arrow</span>
+                        استمع
+                    </button>
+<button class="flex-1 h-touch-target bg-primary text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">description</span>
+                        عرض النص
+                    </button>
+</div>
+</article>
+<!-- Note Card 2 -->
+<article class="bg-white rounded-card p-8 blue-gray-shadow flex flex-col gap-4 border-t-4 border-primary">
+<div class="flex justify-between items-start">
+<span class="bg-primary/10 text-primary px-4 py-1 rounded-full font-label-md text-sm font-bold">سيرة</span>
+<span class="text-tertiary font-label-md text-sm">١٠ رمضان ١٤٤٥</span>
+</div>
+<div>
+<h2 class="font-arabic-h1 text-[22px] text-primary mb-1">السيرة النبوية — العهد المكي</h2>
+<p class="text-on-surface-variant text-sm font-label-md">٨ ملاحظات مسجلة</p>
+</div>
+<div class="py-4 border-y border-outline-variant/10">
+<p class="text-on-surface-variant italic text-sm font-arabic-body truncate">"بدأت الدعوة سراً لمدة ثلاث سنوات قبل الجهر بها في مكة..."</p>
+</div>
+<div class="flex gap-4 mt-2">
+<button class="flex-1 h-touch-target border-2 border-secondary text-secondary rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-secondary/5 transition-colors">
+<span class="material-symbols-outlined">play_arrow</span>
+                        استمع
+                    </button>
+<button class="flex-1 h-touch-target bg-primary text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">description</span>
+                        عرض النص
+                    </button>
+</div>
+</article>
+<!-- Note Card 3 -->
+<article class="bg-white rounded-card p-8 blue-gray-shadow flex flex-col gap-4 border-t-4 border-tertiary">
+<div class="flex justify-between items-start">
+<span class="bg-tertiary/10 text-tertiary px-4 py-1 rounded-full font-label-md text-sm font-bold">فقه</span>
+<span class="text-tertiary font-label-md text-sm">٠٥ رمضان ١٤٤٥</span>
+</div>
+<div>
+<h2 class="font-arabic-h1 text-[22px] text-primary mb-1">أحكام العبادات — الطهارة</h2>
+<p class="text-on-surface-variant text-sm font-label-md">١٥ ملاحظة مسجلة</p>
+</div>
+<div class="py-4 border-y border-outline-variant/10">
+<p class="text-on-surface-variant italic text-sm font-arabic-body truncate">"تعريف الطهارة لغة وشرعاً وأقسام المياه التي يجوز بها التطهر..."</p>
+</div>
+<div class="flex gap-4 mt-2">
+<button class="flex-1 h-touch-target border-2 border-secondary text-secondary rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-secondary/5 transition-colors">
+<span class="material-symbols-outlined">play_arrow</span>
+                        استمع
+                    </button>
+<button class="flex-1 h-touch-target bg-primary text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">description</span>
+                        عرض النص
+                    </button>
+</div>
+</article>
+<!-- Note Card 4 -->
+<article class="bg-white rounded-card p-8 blue-gray-shadow flex flex-col gap-4 border-t-4 border-secondary">
+<div class="flex justify-between items-start">
+<span class="bg-secondary/10 text-secondary px-4 py-1 rounded-full font-label-md text-sm font-bold">تفسير</span>
+<span class="text-tertiary font-label-md text-sm">٠١ رمضان ١٤٤٥</span>
+</div>
+<div>
+<h2 class="font-arabic-h1 text-[22px] text-primary mb-1">تفسير سورة البقرة — الجزء الأول</h2>
+<p class="text-on-surface-variant text-sm font-label-md">٢٠ ملاحظة مسجلة</p>
+</div>
+<div class="py-4 border-y border-outline-variant/10">
+<p class="text-on-surface-variant italic text-sm font-arabic-body truncate">"تفسير آلم وأهمية التقوى في تلقي هداية القرآن الكريم..."</p>
+</div>
+<div class="flex gap-4 mt-2">
+<button class="flex-1 h-touch-target border-2 border-secondary text-secondary rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-secondary/5 transition-colors">
+<span class="material-symbols-outlined">play_arrow</span>
+                        استمع
+                    </button>
+<button class="flex-1 h-touch-target bg-primary text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">description</span>
+                        عرض النص
+                    </button>
+</div>
+</article>
+</section>
+</main>
+<!-- BottomNavBar (Voice Listening Bar) -->
+<footer class="fixed bottom-0 left-0 w-full z-50 bg-primary-container h-24 rounded-t-[40px] shadow-lg flex items-center justify-center px-margin-desktop py-4">
+<div class="flex items-center justify-center gap-6 text-white pulse-animation">
+<div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-3xl" style="font-variation-settings: 'FILL' 1;">mic</span>
+</div>
+<div class="flex flex-col">
+<span class="font-arabic-body text-xl font-bold text-on-primary-container">المساعد الصوتي — يستمع</span>
+<span class="text-sm opacity-80">تحدث الآن لطلب ملف أو إجراء عملية...</span>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for buttons
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mousedown', () => {
+                button.style.transform = 'scale(0.95)';
+            });
+            button.addEventListener('mouseup', () => {
+                button.style.transform = 'scale(1)';
+            });
+            button.addEventListener('mouseleave', () => {
+                button.style.transform = 'scale(1)';
+            });
+        });
+
+        // Simulating voice active state visual feedback
+        const micIcon = document.querySelector('.pulse-animation');
+        setInterval(() => {
+            micIcon.style.transform = `scale(${1 + Math.random() * 0.05})`;
+        }, 100);
+    </script>
+</body></html>
